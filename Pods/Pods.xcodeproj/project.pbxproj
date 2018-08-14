@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AC4A6F374B9047DEAC547ACAFAB56C0 /* YoutubeSourceParserKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4725A5FFDBF0C075F28ACF798D4CECF /* YoutubeSourceParserKit-dummy.m */; };
+		817D7FE62DBAE4386E5FA739197D98E2 /* YoutubeSourceParserKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5283FE4AB0E53438AE1217031D62DAD /* YoutubeSourceParserKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81A237D6FE1E3CF32E138BAFD63DA950 /* Pods-AnastasiaMusic-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49D930D6AD1BC57F944B71A2C0E00AFA /* Pods-AnastasiaMusic-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		948163D4A9896A46A653ABE457353664 /* Pods-AnastasiaMusic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DC117B296821F79DA888C7FF71699E32 /* Pods-AnastasiaMusic-dummy.m */; };
+		9E1D856EC065E6E8C83ED7539216FA7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		BDEF03E28F78CA025CA63884B1690CEB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		C90DA6A9F1F7416C6899282D8E5A54FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		DD61366672B2D356E3B4C3A2A2B729ED /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C6D70E238EDBB1231E4D1B558013E4 /* Youtube.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF1C77950B7CA68097978567F2537903 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 282D4040C9C9A20A352C8A938A9D050B;
+			remoteInfo = YoutubeSourceParserKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05C8CE6EC0E853831F429F365ACB9531 /* Pods-AnastasiaMusic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AnastasiaMusic-acknowledgements.markdown"; sourceTree = "<group>"; };
+		156FF28D85C087287AE8F6C1D4523568 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15AC6DB8C8E5FD3DD0D65E1E4C791910 /* YoutubeSourceParserKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YoutubeSourceParserKit.xcconfig; sourceTree = "<group>"; };
+		1CF6DE9D1BDEC725815615FB830C6B67 /* Pods-AnastasiaMusic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AnastasiaMusic-resources.sh"; sourceTree = "<group>"; };
+		44220A75022ADCD41012EAA140ED7EE9 /* Pods-AnastasiaMusic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AnastasiaMusic.modulemap"; sourceTree = "<group>"; };
+		491ECDA877548E6B724E0AD6E96AF01C /* Pods-AnastasiaMusic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AnastasiaMusic-acknowledgements.plist"; sourceTree = "<group>"; };
+		49D930D6AD1BC57F944B71A2C0E00AFA /* Pods-AnastasiaMusic-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AnastasiaMusic-umbrella.h"; sourceTree = "<group>"; };
+		6DEA3345437974E6419AF482CCCE0110 /* Pods-AnastasiaMusic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AnastasiaMusic-frameworks.sh"; sourceTree = "<group>"; };
+		740E864D6D655A89B98FBFE8A5918303 /* YoutubeSourceParserKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YoutubeSourceParserKit.framework; path = YoutubeSourceParserKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90BD0DD8E3357B5883EF541CE6F2919F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90C6D70E238EDBB1231E4D1B558013E4 /* Youtube.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Youtube.swift; path = YoutubeSourceParserKit/Youtube.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A8390625FF6A110A18510CFF0225645F /* YoutubeSourceParserKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YoutubeSourceParserKit.modulemap; sourceTree = "<group>"; };
+		B24AEF7A17ABFC84217C5B5EFE80CF04 /* YoutubeSourceParserKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubeSourceParserKit-prefix.pch"; sourceTree = "<group>"; };
+		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B760F8AA6CB31D3A25638690703F3EF3 /* Pods-AnastasiaMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AnastasiaMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		C31E3C5FE80CAC116E6EB8D56305095F /* Pods-AnastasiaMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AnastasiaMusic.release.xcconfig"; sourceTree = "<group>"; };
+		D4725A5FFDBF0C075F28ACF798D4CECF /* YoutubeSourceParserKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubeSourceParserKit-dummy.m"; sourceTree = "<group>"; };
+		D5283FE4AB0E53438AE1217031D62DAD /* YoutubeSourceParserKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubeSourceParserKit-umbrella.h"; sourceTree = "<group>"; };
+		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DC117B296821F79DA888C7FF71699E32 /* Pods-AnastasiaMusic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AnastasiaMusic-dummy.m"; sourceTree = "<group>"; };
+		E849EFEED2828058F725B77B54A5F17A /* Pods_AnastasiaMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AnastasiaMusic.framework; path = "Pods-AnastasiaMusic.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A87FE0BCFE04047BA21A7208D34F540 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E1D856EC065E6E8C83ED7539216FA7F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83254FDB8697851BB269DE5D267FF5DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90DA6A9F1F7416C6899282D8E5A54FD /* Foundation.framework in Frameworks */,
+				BDEF03E28F78CA025CA63884B1690CEB /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438B396F6B4147076630CAEFE34282C1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
+				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5F55020B2F9C084E159716B498CD067B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90BD0DD8E3357B5883EF541CE6F2919F /* Info.plist */,
+				A8390625FF6A110A18510CFF0225645F /* YoutubeSourceParserKit.modulemap */,
+				15AC6DB8C8E5FD3DD0D65E1E4C791910 /* YoutubeSourceParserKit.xcconfig */,
+				D4725A5FFDBF0C075F28ACF798D4CECF /* YoutubeSourceParserKit-dummy.m */,
+				B24AEF7A17ABFC84217C5B5EFE80CF04 /* YoutubeSourceParserKit-prefix.pch */,
+				D5283FE4AB0E53438AE1217031D62DAD /* YoutubeSourceParserKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YoutubeSourceParserKit";
+			sourceTree = "<group>";
+		};
+		7ADD7415C8192F15735C937206FF710D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF5DA98D0F291A9E90342B04295EDF /* Pods-AnastasiaMusic */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				9C8490FE8E17C81FD7318F1B223DAD33 /* Pods */,
+				E6636575D56D3B189F969CBE05D1DEAF /* Products */,
+				7ADD7415C8192F15735C937206FF710D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9C8490FE8E17C81FD7318F1B223DAD33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC37ED30E5A7858B4E8C90A4B26F9332 /* YoutubeSourceParserKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E6636575D56D3B189F969CBE05D1DEAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E849EFEED2828058F725B77B54A5F17A /* Pods_AnastasiaMusic.framework */,
+				740E864D6D655A89B98FBFE8A5918303 /* YoutubeSourceParserKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBEF5DA98D0F291A9E90342B04295EDF /* Pods-AnastasiaMusic */ = {
+			isa = PBXGroup;
+			children = (
+				156FF28D85C087287AE8F6C1D4523568 /* Info.plist */,
+				44220A75022ADCD41012EAA140ED7EE9 /* Pods-AnastasiaMusic.modulemap */,
+				05C8CE6EC0E853831F429F365ACB9531 /* Pods-AnastasiaMusic-acknowledgements.markdown */,
+				491ECDA877548E6B724E0AD6E96AF01C /* Pods-AnastasiaMusic-acknowledgements.plist */,
+				DC117B296821F79DA888C7FF71699E32 /* Pods-AnastasiaMusic-dummy.m */,
+				6DEA3345437974E6419AF482CCCE0110 /* Pods-AnastasiaMusic-frameworks.sh */,
+				1CF6DE9D1BDEC725815615FB830C6B67 /* Pods-AnastasiaMusic-resources.sh */,
+				49D930D6AD1BC57F944B71A2C0E00AFA /* Pods-AnastasiaMusic-umbrella.h */,
+				B760F8AA6CB31D3A25638690703F3EF3 /* Pods-AnastasiaMusic.debug.xcconfig */,
+				C31E3C5FE80CAC116E6EB8D56305095F /* Pods-AnastasiaMusic.release.xcconfig */,
+			);
+			name = "Pods-AnastasiaMusic";
+			path = "Target Support Files/Pods-AnastasiaMusic";
+			sourceTree = "<group>";
+		};
+		FC37ED30E5A7858B4E8C90A4B26F9332 /* YoutubeSourceParserKit */ = {
+			isa = PBXGroup;
+			children = (
+				90C6D70E238EDBB1231E4D1B558013E4 /* Youtube.swift */,
+				5F55020B2F9C084E159716B498CD067B /* Support Files */,
+			);
+			name = YoutubeSourceParserKit;
+			path = YoutubeSourceParserKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2372B8903C82C1721EA17BF1C10E0366 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				817D7FE62DBAE4386E5FA739197D98E2 /* YoutubeSourceParserKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		573D871A76C6846F27D90EC6E2F56106 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A237D6FE1E3CF32E138BAFD63DA950 /* Pods-AnastasiaMusic-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		282D4040C9C9A20A352C8A938A9D050B /* YoutubeSourceParserKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA6A51AAA67EA8E0020AFE5688F09DA4 /* Build configuration list for PBXNativeTarget "YoutubeSourceParserKit" */;
+			buildPhases = (
+				6D6CFC24F0C1E6E89378625225A0FEF7 /* Sources */,
+				83254FDB8697851BB269DE5D267FF5DB /* Frameworks */,
+				2372B8903C82C1721EA17BF1C10E0366 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YoutubeSourceParserKit;
+			productName = YoutubeSourceParserKit;
+			productReference = 740E864D6D655A89B98FBFE8A5918303 /* YoutubeSourceParserKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E1065B7A505E916A8A591A95E6A6BEA7 /* Pods-AnastasiaMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8CC3EA31887F80300AB2D321207E35C /* Build configuration list for PBXNativeTarget "Pods-AnastasiaMusic" */;
+			buildPhases = (
+				6EDB3FA9B62C5CA934D3EABF81A7A1C4 /* Sources */,
+				0A87FE0BCFE04047BA21A7208D34F540 /* Frameworks */,
+				573D871A76C6846F27D90EC6E2F56106 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88293F1DBCD9A268E4C8B48CA9E22EFA /* PBXTargetDependency */,
+			);
+			name = "Pods-AnastasiaMusic";
+			productName = "Pods-AnastasiaMusic";
+			productReference = E849EFEED2828058F725B77B54A5F17A /* Pods_AnastasiaMusic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = E6636575D56D3B189F969CBE05D1DEAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1065B7A505E916A8A591A95E6A6BEA7 /* Pods-AnastasiaMusic */,
+				282D4040C9C9A20A352C8A938A9D050B /* YoutubeSourceParserKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6D6CFC24F0C1E6E89378625225A0FEF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD61366672B2D356E3B4C3A2A2B729ED /* Youtube.swift in Sources */,
+				0AC4A6F374B9047DEAC547ACAFAB56C0 /* YoutubeSourceParserKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EDB3FA9B62C5CA934D3EABF81A7A1C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				948163D4A9896A46A653ABE457353664 /* Pods-AnastasiaMusic-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88293F1DBCD9A268E4C8B48CA9E22EFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YoutubeSourceParserKit;
+			target = 282D4040C9C9A20A352C8A938A9D050B /* YoutubeSourceParserKit */;
+			targetProxy = FF1C77950B7CA68097978567F2537903 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00A06BEB3987B2117D563D0D7CF7ACC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		06CDE6974613B53EAD63DC4FA9EF1A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15AC6DB8C8E5FD3DD0D65E1E4C791910 /* YoutubeSourceParserKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YoutubeSourceParserKit/YoutubeSourceParserKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YoutubeSourceParserKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YoutubeSourceParserKit/YoutubeSourceParserKit.modulemap";
+				PRODUCT_NAME = YoutubeSourceParserKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		30FCAB7F61FA48B7044A416C6890A8C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15AC6DB8C8E5FD3DD0D65E1E4C791910 /* YoutubeSourceParserKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YoutubeSourceParserKit/YoutubeSourceParserKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YoutubeSourceParserKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YoutubeSourceParserKit/YoutubeSourceParserKit.modulemap";
+				PRODUCT_NAME = YoutubeSourceParserKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		86B956D8BC945B7454E57FABD1D647C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B760F8AA6CB31D3A25638690703F3EF3 /* Pods-AnastasiaMusic.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AnastasiaMusic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AnastasiaMusic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCF405426857C065123D950465A8AEFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F42643317FDE7592E1465AD090446A45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C31E3C5FE80CAC116E6EB8D56305095F /* Pods-AnastasiaMusic.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AnastasiaMusic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_AnastasiaMusic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF405426857C065123D950465A8AEFA /* Debug */,
+				00A06BEB3987B2117D563D0D7CF7ACC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA6A51AAA67EA8E0020AFE5688F09DA4 /* Build configuration list for PBXNativeTarget "YoutubeSourceParserKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CDE6974613B53EAD63DC4FA9EF1A30 /* Debug */,
+				30FCAB7F61FA48B7044A416C6890A8C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8CC3EA31887F80300AB2D321207E35C /* Build configuration list for PBXNativeTarget "Pods-AnastasiaMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86B956D8BC945B7454E57FABD1D647C6 /* Debug */,
+				F42643317FDE7592E1465AD090446A45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
