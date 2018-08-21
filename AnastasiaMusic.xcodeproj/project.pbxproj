@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B4833355212202530043709A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833354212202530043709A /* AppDelegate.swift */; };
-		B4833357212202530043709A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833356212202530043709A /* ViewController.swift */; };
+		B4833357212202530043709A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833356212202530043709A /* SearchViewController.swift */; };
 		B483335A212202530043709A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4833358212202530043709A /* Main.storyboard */; };
 		B483335C212202540043709A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B483335B212202540043709A /* Assets.xcassets */; };
 		B483335F212202540043709A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B483335D212202540043709A /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		53093FFEDBAB524F99CED3F4 /* Pods-AnastasiaMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.release.xcconfig"; sourceTree = "<group>"; };
 		B4833351212202530043709A /* AnastasiaMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnastasiaMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4833354212202530043709A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4833356212202530043709A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4833356212202530043709A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B4833359212202530043709A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B483335B212202540043709A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B483335E212202540043709A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				B4833354212202530043709A /* AppDelegate.swift */,
-				B4833356212202530043709A /* ViewController.swift */,
+				B4833356212202530043709A /* SearchViewController.swift */,
 				B4833358212202530043709A /* Main.storyboard */,
 				B483335B212202540043709A /* Assets.xcassets */,
 				B483335D212202540043709A /* LaunchScreen.storyboard */,
@@ -165,10 +165,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/QorumLogs/QorumLogs.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/YoutubeSourceParserKit/YoutubeSourceParserKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QorumLogs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubeSourceParserKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4833357212202530043709A /* ViewController.swift in Sources */,
+				B4833357212202530043709A /* SearchViewController.swift in Sources */,
 				B4833355212202530043709A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,7 +369,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9PQUJHQ8E;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -381,7 +388,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9PQUJHQ8E;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

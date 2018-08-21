@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "282D4040C9C9A20A352C8A938A9D050B"
+               BlueprintIdentifier = "EBD8F38929889ABF1A7C533602FF0072"
                BlueprintName = "YoutubeSourceParserKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "YoutubeSourceParserKit.framework">
