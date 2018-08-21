@@ -21,50 +21,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    private func parseSearchResult(query: String?) -> Array<(String, String)> {
-        var searchResult = Array<(String, String)>()
-        guard let query = query else {
-            return searchResult
-        }
-        let queryString = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        guard let url = URL(string: "http://mp3party.net/search?q=\(queryString)") else {
-            QL4("Failed to create URL object")
-            return searchResult
-        }
-        
-        do {
-            let searchResultHtml = try String(contentsOf: url)
-            let searchResultHtmlDocument = try SwiftSoup.parse(searchResultHtml)
-            let searchResultElements = try searchResultHtmlDocument.select("div.song-item")
-            searchResultElements.forEach { searchResultElement in
-                // TODO Use filter
-                guard let searchResultDiv = try! searchResultElement.select("a").array().first else {
-                    return
-                }
-                guard let musicPathAttributes = searchResultDiv.getAttributes()?.asList() else {
-                    return
-                }
-                guard let searchResultItemAttribute = musicPathAttributes.first else {
-                    return
-                }
-                guard let searchResultItemName = try? searchResultDiv.html() else {
-                    return
-                }
-                QL1("Name: \(searchResultItemName)")
-                QL1("music path: \(searchResultItemAttribute.getValue())")
-                searchResult.append((searchResultItemName, searchResultItemAttribute.getValue()))
-            }
-            QL1("\(searchResult)")
-        } catch Exception.Error(let type, let message) {
-            QL4("type: \(type) message: \(message)")
-        } catch {
-            QL4("Error")
-        }
-        return searchResult
-    }
-    
     @IBAction func searchAction(_ sender: Any) {
-        searchResult = parseSearchResult(query: queryTextField.text)
+        searchResult = SearchViewController.search(query: queryTextField.text)
         
         tableView.reloadData()
     }
@@ -82,8 +40,22 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellId") else { return }
+        let musicPath = searchResult[indexPath.row].1
+        let musicName = searchResult[indexPath.row].0
+        SearchViewController.downloadMusicAt(path: musicPath, withName: musicName) { succeeded, localUrl in
+            QL2("succeeded: \(succeeded) localUrl: \(localUrl?.absoluteString ?? "")")
+        }
+        QL2("Downloading \(musicPath)")
+        
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
 extension SearchViewController {
-    class func load(url: URL, to localUrl: URL, completion: @escaping (Bool) -> ()) {
+    private static func download(url: URL, to localUrl: URL, completion: @escaping (Bool) -> ()) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         let request = URLRequest(url: url)
@@ -99,7 +71,7 @@ extension SearchViewController {
                     try FileManager.default.copyItem(at: tempLocalUrl, to: localUrl)
                     completion(true)
                 } catch (let writeError) {
-                    QL4("error writing file \(localUrl) : \(writeError)")
+                    QL4("Error writing file \(localUrl) : \(writeError)")
                     completion(false)
                 }
                 
@@ -109,5 +81,96 @@ extension SearchViewController {
             }
         }
         task.resume()
+    }
+    
+    private static func downloadMusicAt(path: String, withName name: String, completion: @escaping (Bool, URL?) -> ()) {
+        let itemUrlString = "http://mp3party.net/\(path)"
+        guard let itemUrl = URL(string: itemUrlString) else {
+            QL4("Failed to create URL object from \(itemUrlString)")
+            completion(false, nil)
+            return
+        }
+        guard let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            QL4("NSSearchPathForDirectoriesInDomains failed")
+            completion(false, nil)
+            return
+        }
+        let documentsUrl = URL(fileURLWithPath: documentsPath)
+        let localUrl = documentsUrl.appendingPathComponent("\(name).mp3")
+        do {
+            let itemHtml = try String(contentsOf: itemUrl)
+            let itemHtmlDocument = try SwiftSoup.parse(itemHtml)
+            let itemDiv = try itemHtmlDocument.select("div.download").array().first
+            guard let itemElement = try? itemDiv?.select("a").array().first else {
+                completion(false, nil)
+                return
+            }
+            guard let itemAttributes = itemElement?.getAttributes()?.asList() else {
+                completion(false, nil)
+                return
+            }
+            guard let itemAttribute = itemAttributes.first else {
+                completion(false, nil)
+                return
+            }
+            guard let downloadUrl = URL(string: itemAttribute.getValue()) else {
+                QL4("Failed to create download URL object from \(itemAttribute.getValue())")
+                completion(false, nil)
+                return
+            }
+            SearchViewController.download(url: downloadUrl, to: localUrl) { succeeded in
+                QL2("succeeded: \(succeeded) localUrl: \(localUrl)")
+                completion(succeeded, localUrl)
+            }
+        } catch {
+            QL4("Error")
+            completion(false, nil)
+        }
+    }
+    
+    private static func search(query: String?) -> Array<(String, String)> {
+        var searchResult = Array<(String, String)>()
+        guard let query = query else {
+            return searchResult
+        }
+        let queryString = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        guard let queryUrl = URL(string: "http://mp3party.net/search?q=\(queryString)") else {
+            QL4("Failed to create URL object")
+            return searchResult
+        }
+        
+        do {
+            let searchResultHtml = try String(contentsOf: queryUrl)
+            let searchResultHtmlDocument = try SwiftSoup.parse(searchResultHtml)
+            let searchResultElements = try searchResultHtmlDocument.select("div.song-item")
+            searchResultElements.forEach { searchResultDiv in
+                // TODO Use filter
+                guard let searchResultElement = try? searchResultDiv.select("a").array().first else {
+                    return
+                }
+                guard let musicPathAttributes = searchResultElement?.getAttributes()?.asList() else {
+                    return
+                }
+                guard let searchResultItemAttribute = musicPathAttributes.first else {
+                    return
+                }
+                guard let searchResultItemName = try? searchResultElement?.html() else {
+                    return
+                }
+                guard let itemName = searchResultItemName else {
+                    return
+                }
+                
+                QL1("Name: \(itemName)")
+                QL1("Music path: \(searchResultItemAttribute.getValue())")
+                searchResult.append((itemName, searchResultItemAttribute.getValue()))
+            }
+            QL1("searchResult: \(searchResult)")
+        } catch Exception.Error(let type, let message) {
+            QL4("Error type: \(type) message: \(message)")
+        } catch {
+            QL4("Error")
+        }
+        return searchResult
     }
 }
