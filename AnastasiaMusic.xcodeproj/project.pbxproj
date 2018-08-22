@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B421675A212CD8A500E723B3 /* PlayerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4216759212CD8A500E723B3 /* PlayerTableCell.swift */; };
+		B464CEEB212D390F009E80BE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B464CEEA212D390F009E80BE /* AVFoundation.framework */; };
 		B4833355212202530043709A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833354212202530043709A /* AppDelegate.swift */; };
 		B4833357212202530043709A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833356212202530043709A /* SearchViewController.swift */; };
 		B483335A212202530043709A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4833358212202530043709A /* Main.storyboard */; };
 		B483335C212202540043709A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B483335B212202540043709A /* Assets.xcassets */; };
 		B483335F212202540043709A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B483335D212202540043709A /* LaunchScreen.storyboard */; };
+		B4848B68212CD61100C44F4A /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4848B67212CD61100C44F4A /* PlayerViewController.swift */; };
 		F899DB6661AC5F59A17D9E8B /* Pods_AnastasiaMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0956F4DD47F6492A041019D3 /* Pods_AnastasiaMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,6 +22,8 @@
 		0956F4DD47F6492A041019D3 /* Pods_AnastasiaMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		389DB28080B0D79313A2ECDF /* Pods-AnastasiaMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		53093FFEDBAB524F99CED3F4 /* Pods-AnastasiaMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.release.xcconfig"; sourceTree = "<group>"; };
+		B4216759212CD8A500E723B3 /* PlayerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableCell.swift; sourceTree = "<group>"; };
+		B464CEEA212D390F009E80BE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B4833351212202530043709A /* AnastasiaMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnastasiaMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4833354212202530043709A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4833356212202530043709A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +31,8 @@
 		B483335B212202540043709A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B483335E212202540043709A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4833360212202540043709A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4848B67212CD61100C44F4A /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		B4D9356F212CDA6E00C64F45 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B464CEEB212D390F009E80BE /* AVFoundation.framework in Frameworks */,
 				F899DB6661AC5F59A17D9E8B /* Pods_AnastasiaMusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +51,8 @@
 		60DF355949E7FBD53F40D11C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B464CEEA212D390F009E80BE /* AVFoundation.framework */,
+				B4D9356F212CDA6E00C64F45 /* AVKit.framework */,
 				0956F4DD47F6492A041019D3 /* Pods_AnastasiaMusic.framework */,
 			);
 			name = Frameworks;
@@ -71,6 +81,8 @@
 			children = (
 				B4833354212202530043709A /* AppDelegate.swift */,
 				B4833356212202530043709A /* SearchViewController.swift */,
+				B4848B67212CD61100C44F4A /* PlayerViewController.swift */,
+				B4216759212CD8A500E723B3 /* PlayerTableCell.swift */,
 				B4833358212202530043709A /* Main.storyboard */,
 				B483335B212202540043709A /* Assets.xcassets */,
 				B483335D212202540043709A /* LaunchScreen.storyboard */,
@@ -221,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4833357212202530043709A /* SearchViewController.swift in Sources */,
+				B421675A212CD8A500E723B3 /* PlayerTableCell.swift in Sources */,
 				B4833355212202530043709A /* AppDelegate.swift in Sources */,
+				B4848B68212CD61100C44F4A /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,10 @@ import YoutubeSourceParserKit
 import SwiftSoup
 import QorumLogs
 
+public func documentsPath() -> String? {
+    return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+}
+
 class SearchViewController: UIViewController {
     @IBOutlet weak var queryTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -21,10 +25,19 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func listAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "playSegueue", sender: self)
+    }
+    
     @IBAction func searchAction(_ sender: Any) {
         searchResult = SearchViewController.search(query: queryTextField.text)
         
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "playSegueue" {
+        }
     }
 }
 
@@ -47,6 +60,11 @@ extension SearchViewController: UITableViewDelegate {
         let musicName = searchResult[indexPath.row].0
         SearchViewController.downloadMusicAt(path: musicPath, withName: musicName) { succeeded, localUrl in
             QL2("succeeded: \(succeeded) localUrl: \(localUrl?.absoluteString ?? "")")
+            if let _ = localUrl, succeeded {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "playSegueue", sender: self)
+                }
+            }
         }
         QL2("Downloading \(musicPath)")
         
@@ -90,7 +108,7 @@ extension SearchViewController {
             completion(false, nil)
             return
         }
-        guard let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+        guard let documentsPath = documentsPath() else {
             QL4("NSSearchPathForDirectoriesInDomains failed")
             completion(false, nil)
             return
