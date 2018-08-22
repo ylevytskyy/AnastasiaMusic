@@ -31,6 +31,8 @@ class PlayerTableCell: UITableViewCell {
     private var audioPlayer: AVAudioPlayer?
     
     @IBAction func playAction(_ sender: Any) {
+        QL1("playAction")
+        
         guard let musicUrl = musicUrl else {
             QL3("NULL music URL")
             return
@@ -47,12 +49,20 @@ class PlayerTableCell: UITableViewCell {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             audioPlayer.play()
+            
+            playButton.setTitle("Playing", for: .normal)
+            playButton.isEnabled = false
         } catch let error {
             QL4("\(error)")
         }
     }
     
     @IBAction func stopAction(_ sender: Any) {
+        QL1("stopAction")
+        
         audioPlayer?.stop()
+        
+        playButton.setTitle("Play", for: .normal)
+        playButton.isEnabled = true
     }
 }
