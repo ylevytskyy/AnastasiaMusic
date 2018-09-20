@@ -32,7 +32,7 @@ final class Repository<T> where T: StorableType {
                 do {
                     let values = T.sqlColumnNames.map { entity.sqlValue(column: $0) }
                     let placeholders = values.reduce("") { a, _ in a.isEmpty ? "?" : "\(a), ?"}
-                    try db.executeUpdate("INSERT OR REPLACE INTO \(T.sqlTableName) VALUES (\(placeholders))", values: values)
+                    try db.executeUpdate("INSERT OR REPLACE INTO \(T.sqlTableName) VALUES (\(placeholders))", values: values as [Any])
                     
                     observable(.success(()))
                     

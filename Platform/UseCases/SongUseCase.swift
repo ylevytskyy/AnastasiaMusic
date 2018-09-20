@@ -9,6 +9,7 @@
 import RxSwift
 import QorumLogs
 import SwiftSoup
+import AVFoundation
 import Domain
 
 private func download(url: URL, to localUrl: URL) -> Observable<Void> {
@@ -49,6 +50,8 @@ private func download(url: URL, to localUrl: URL) -> Observable<Void> {
 final class SongUseCase : Domain.SongUseCase {
     private let scheduler = ConcurrentDispatchQueueScheduler(qos: .utility)
     private let repository: Repository<Domain.Song>
+    
+    private var audioPlayer: AVAudioPlayer?
     
     init(repository: Repository<Domain.Song>) {
         self.repository = repository
@@ -109,8 +112,7 @@ final class SongUseCase : Domain.SongUseCase {
                 } else {
                     single(.error(NSError(domain: "Network", code: 2, userInfo: nil)))
                 }
-            }
-            catch let error {
+            } catch let error {
                 single(.error(error))
             }
             return Disposables.create {}
@@ -118,10 +120,26 @@ final class SongUseCase : Domain.SongUseCase {
     }
     
     func play(song: Song) -> Observable<Void> {
-        return Observable<Void>.empty()
+        return Single<Void>.create { observer in
+            if let localURL = song.localURL {
+                do {
+                    self.audioPlayer = try AVAudioPlayer(contentsOf: localURL)
+                    self.audioPlayer!.prepareToPlay()
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    self.audioPlayer!.play()
+                    observer(.success(()))
+                } catch let error {
+                    observer(.error(error))
+                }
+            } else {
+                observer(.error(NSError(domain: "", code: 1, userInfo: nil)))
+            }
+            return Disposables.create {}
+        }.asObservable()
     }
     
     func stop() -> Observable<Void> {
-        return Observable<Void>.empty()
+        audioPlayer?.stop()
+        return Observable<Void>.just(())
     }
 }

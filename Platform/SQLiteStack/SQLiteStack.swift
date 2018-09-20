@@ -17,7 +17,10 @@ final class SQLiteStack {
     public init() {
         let documentsPath = FileManager.default.documentDirectory() as NSString
         let fullPath = documentsPath.appendingPathComponent(dbFileName)
+        
+        QorumLogs.enabled = true
         QL1("SQLiteStack db path: \(fullPath)")
+        
         dbQueue = FMDatabaseQueue(path: fullPath)
     }
 }

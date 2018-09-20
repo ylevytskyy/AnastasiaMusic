@@ -13,7 +13,7 @@
         <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Search" id="BYZ-38-t0r" customClass="SearchViewController" customModule="AnastasiaMusic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="BYZ-38-t0r" customClass="SongSearchViewController" customModule="AnastasiaMusic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,22 +27,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-nx-dnQ">
                                 <rect key="frame" x="16" y="102" width="30" height="30"/>
                                 <state key="normal" title="List"/>
-                                <connections>
-                                    <action selector="listAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NnR-QK-sHC"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi4-nZ-MgR">
                                 <rect key="frame" x="311" y="102" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXH-hr-pHc"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-hh-VTe">
                                 <rect key="frame" x="16" y="140" width="343" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" id="I3o-TQ-tfs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" id="I3o-TQ-tfs" customClass="SongSearchTableCell" customModule="AnastasiaMusic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I3o-TQ-tfs" id="YQo-eV-e0o">
@@ -52,12 +46,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4wg-bJ-ykZ">
+                                <rect key="frame" x="177.5" y="355.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J0I-nx-dnQ" firstAttribute="top" secondItem="pLJ-uy-BQk" secondAttribute="bottom" constant="8" id="1U7-C4-KDm"/>
                             <constraint firstItem="8eN-hh-VTe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2nh-fB-KEc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8eN-hh-VTe" secondAttribute="bottom" constant="20" id="3Z8-8R-ERy"/>
+                            <constraint firstItem="4wg-bJ-ykZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EfW-j8-PZU"/>
                             <constraint firstItem="pLJ-uy-BQk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jgl-nN-aos"/>
                             <constraint firstItem="J0I-nx-dnQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VfL-VC-m1i"/>
                             <constraint firstItem="pLJ-uy-BQk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Vkm-dN-cD2"/>
@@ -67,12 +65,16 @@
                             <constraint firstItem="Pi4-nZ-MgR" firstAttribute="top" secondItem="pLJ-uy-BQk" secondAttribute="bottom" constant="8" id="lAl-sR-34v"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pi4-nZ-MgR" secondAttribute="trailing" constant="16" id="qH3-Wh-biR"/>
                             <constraint firstItem="Pi4-nZ-MgR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ssT-sb-EGr"/>
+                            <constraint firstItem="4wg-bJ-ykZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yGa-iL-EJ7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="AZA-sN-imO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="4wg-bJ-ykZ" id="XHi-cv-faK"/>
+                        <outlet property="listButton" destination="J0I-nx-dnQ" id="86R-dC-AlM"/>
                         <outlet property="queryTextField" destination="pLJ-uy-BQk" id="DU5-1W-0bz"/>
+                        <outlet property="searchButton" destination="Pi4-nZ-MgR" id="YRi-e4-CXf"/>
                         <outlet property="tableView" destination="8eN-hh-VTe" id="yj0-IL-sdK"/>
                         <segue destination="Vl7-eG-5vd" kind="show" identifier="playSegueue" id="eON-Wg-gRh"/>
                     </connections>
@@ -81,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="118.29085457271366"/>
         </scene>
-        <!--Player View Controller-->
+        <!--Song List View Controller-->
         <scene sceneID="G6d-3K-TrY">
             <objects>
-                <viewController id="Vl7-eG-5vd" customClass="PlayerViewController" customModule="AnastasiaMusic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vl7-eG-5vd" customClass="SongListViewController" customModule="AnastasiaMusic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SpG-MK-m0o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" rowHeight="88" id="BVP-2p-uL5" customClass="PlayerTableCell" customModule="AnastasiaMusic" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" rowHeight="88" id="BVP-2p-uL5" customClass="SongListTableCell" customModule="AnastasiaMusic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BVP-2p-uL5" id="Zx8-DS-Eff">
