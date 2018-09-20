@@ -22,15 +22,15 @@
                                 <rect key="frame" x="16" y="64" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="webSearch" keyboardAppearance="alert" returnKeyType="search"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-nx-dnQ">
-                                <rect key="frame" x="16" y="102" width="30" height="30"/>
-                                <state key="normal" title="List"/>
+                                <rect key="frame" x="16" y="102" width="105" height="30"/>
+                                <state key="normal" title="Скачані файли"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi4-nZ-MgR">
                                 <rect key="frame" x="311" y="102" width="48" height="30"/>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Пошук"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-hh-VTe">
                                 <rect key="frame" x="16" y="140" width="343" height="507"/>
@@ -103,15 +103,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQU-5A-GfL">
-                                                    <rect key="frame" x="20" y="19" width="30" height="50"/>
-                                                    <state key="normal" title="Play"/>
+                                                    <rect key="frame" x="20" y="19" width="41" height="50"/>
+                                                    <state key="normal" title="Грати"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anN-h9-CwK">
-                                                    <rect key="frame" x="66" y="19" width="32" height="50"/>
-                                                    <state key="normal" title="Stop"/>
+                                                    <rect key="frame" x="77" y="19" width="69" height="50"/>
+                                                    <state key="normal" title="Зупинити"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-p8-dBq">
-                                                    <rect key="frame" x="114" y="33.5" width="42" height="21"/>
+                                                    <rect key="frame" x="162" y="33.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

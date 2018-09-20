@@ -13,8 +13,8 @@ import Domain
 final class SongListCellViewModel: ViewModelType {
     struct Input {
         let song: Driver<Domain.Song>
-        let playTrigger: Observable<Void>
-        let stopTrigger: Observable<Void>
+        let playTrigger: Driver<Void>
+        let stopTrigger: Driver<Void>
     }
     
     struct Output {
@@ -28,21 +28,19 @@ final class SongListCellViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         input.stopTrigger
-            .flatMap { self.useCase.stop() }
-            .subscribe()
+            .flatMap { _ in self.useCase.stop().asDriver(onErrorJustReturn: ()) }
+            .drive()
             .disposed(by: disposeBag)
 
         input.playTrigger
             .withLatestFrom(input.song)
-            .flatMap { self.useCase.play(song: $0) }
-            .subscribe()
+            .flatMap { self.useCase.play(song: $0).asDriver(onErrorJustReturn: ()) }
+            .drive()
             .disposed(by: disposeBag)
         
-        let playButtonTitle = Observable
+        let playButtonTitle = Driver
             .merge(input.playTrigger.map { _ in true }, input.stopTrigger.map { _ in false })
-            .asDriver(onErrorJustReturn: false)
-            .debug("isPlaying", trimOutput: false)
-            .map { $0 ? "Playing" : "Play" }
+            .map { $0 ? "Грається" : "Грати" }
         
         // Output
         return Output(

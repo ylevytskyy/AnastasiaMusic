@@ -48,6 +48,10 @@ private func download(url: URL, to localUrl: URL) -> Observable<Void> {
 }
 
 final class SongUseCase : Domain.SongUseCase {
+    var songs: Observable<[Song]> {
+        return repository.entities
+    }
+    
     private let scheduler = ConcurrentDispatchQueueScheduler(qos: .utility)
     private let repository: Repository<Domain.Song>
     
@@ -80,8 +84,8 @@ final class SongUseCase : Domain.SongUseCase {
         .observeOn(MainScheduler.instance)
     }
     
-    var songs: Observable<[Song]> {
-        return repository.entities
+    func query(description: String) -> Observable<[Song]> {
+        return repository.query(description: description)
     }
     
     func download(song: Song) -> Observable<Void> {
