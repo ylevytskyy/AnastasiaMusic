@@ -11,6 +11,8 @@ import RxSwift
 public protocol SongUseCase {
     var songs: Observable<[Song]> { get }
     
+    func query(description: String) -> Observable<[Song]>
+    
     func search(query: String) -> Observable<[Song]>
     func download(song: Song) -> Observable<Void>
     

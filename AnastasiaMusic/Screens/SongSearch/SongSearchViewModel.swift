@@ -12,20 +12,22 @@ import Domain
 
 final class SongSearchViewModel: ViewModelType {
     struct Input {
-        let queryTrigger: Observable<String>
-        let listTrigger: Observable<Void>
-        let downloadTrigger: Observable<Domain.Song>
+        let queryTrigger: Driver<String>
+        let listTrigger: Driver<Void>
+        let downloadTrigger: Driver<Domain.Song>
     }
     
     struct Output {
         let searchResults: Driver<[Song]>
         let isBusy: Driver<Bool>
         let navigateToListTrigger: Driver<Void>
+        let downloadErrorTrigger: Driver<String>
     }
     
     private let useCase: Domain.SongUseCase
     
     private let isBusyRelay = BehaviorRelay(value: false)
+    private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
     
     init(useCase: Domain.SongUseCase) {
         self.useCase = useCase
@@ -33,7 +35,7 @@ final class SongSearchViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         // Search trigger
-        let searchEnabler = Observable.combineLatest(input.queryTrigger, isBusyRelay)
+        let searchEnabler = Driver.combineLatest(input.queryTrigger, isBusyRelay.asDriver())
         let searchResults = input.queryTrigger
             .withLatestFrom(searchEnabler)
             .filter { !$0.1 }
@@ -42,30 +44,50 @@ final class SongSearchViewModel: ViewModelType {
                 self.useCase
                     .search(query: $0)
                     .do(onError: { _ in self.isBusyRelay.accept(false) }, onCompleted: { self.isBusyRelay.accept(false) }, onSubscribe: { self.isBusyRelay.accept(true) })
+                .asDriver(onErrorJustReturn: [Song]())
             }
-            .asDriver(onErrorJustReturn: [Song]())
+//            .asDriver(onErrorJustReturn: [Song]())
         
         // Download trigger
-        let downloadedEnabler = Observable.combineLatest(input.downloadTrigger, isBusyRelay)
+        let downloadedEnabler = Driver.combineLatest(input.downloadTrigger, isBusyRelay.asDriver())
         let downloadedTrigger = input.downloadTrigger
             .withLatestFrom(downloadedEnabler)
             .filter { !$0.1 }
             .map { $0.0 }
-            .flatMap {
+            .flatMap { song in
                 self.useCase
-                    .download(song: $0)
-                    .do(onError: { _ in self.isBusyRelay.accept(false) }, onCompleted: { self.isBusyRelay.accept(false) }, onSubscribe: { self.isBusyRelay.accept(true) })
+                    .query(description: song.description)
+                    .asDriver(onErrorJustReturn: [Song]())
+                    .flatMap { (sameSongs:[Song]) -> Driver<Void> in
+                        if !sameSongs.isEmpty {
+                            self.downloadErrorTriggerRelay.accept("Пісню вже закачано")
+                        }
+                        return sameSongs.isEmpty
+                            ?
+                                self.useCase
+                                    .download(song: song)
+                                    .do(
+                                        onError: { error in
+                                            self.isBusyRelay.accept(false)
+                                            self.downloadErrorTriggerRelay.accept(error.localizedDescription)
+                                    }, onCompleted: {
+                                        self.isBusyRelay.accept(false)
+                                    }, onSubscribe: {
+                                        self.isBusyRelay.accept(true)
+                                    })
+                                    .asDriver(onErrorJustReturn: ())
+                            :
+                            Observable
+                                .just(())
+                                .asDriver(onErrorJustReturn: ())
+                }
         }
-        
-        // Navigate to List trigger
-        let navigateToListTrigger = Observable<Void>
-            .merge(input.listTrigger, downloadedTrigger)
-            .asDriver(onErrorJustReturn: ())
         
         // Output
         return Output(
             searchResults:searchResults,
             isBusy: isBusyRelay.asDriver(),
-            navigateToListTrigger:navigateToListTrigger)
+            navigateToListTrigger:Driver<Void>.merge(input.listTrigger, downloadedTrigger),
+            downloadErrorTrigger:downloadErrorTriggerRelay.asDriver())
     }
 }

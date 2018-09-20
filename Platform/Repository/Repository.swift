@@ -72,6 +72,28 @@ final class Repository<T> where T: StorableType {
         }.asObservable()
     }
     
+    public func query(description: String) -> Observable<[T]> {
+        return Single<[T]>.create { observable in
+            self.dbQueue.inDatabase { db in
+                do {
+                    let sqlString = "SELECT \(T.sqlColumnNames.joined(separator: ", ")) FROM \(T.sqlTableName) WHERE description=?"
+                    let resultSet = try db.executeQuery(sqlString, values: [description])
+                    var entities = [T]()
+                    while resultSet.next() {
+                        let entity = T(resultSet: resultSet)
+                        entities.append(entity)
+                    }
+                    
+                    observable(.success((entities)))
+                }
+                catch let error {
+                    observable(.error(error))
+                }
+            }
+            return Disposables.create {}
+            }.asObservable()
+    }
+    
     private func createTable() -> Observable<Void> {
         return Single<Void>.create { observable in
             self.dbQueue.inDatabase { db in
