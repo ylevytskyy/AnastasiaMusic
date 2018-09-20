@@ -95,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" rowHeight="88" id="BVP-2p-uL5" customClass="SongListTableCell" customModule="AnastasiaMusic" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellId" rowHeight="88" id="BVP-2p-uL5" customClass="SongListTableCell" customModule="AnastasiaMusic" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BVP-2p-uL5" id="Zx8-DS-Eff">
@@ -105,16 +105,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQU-5A-GfL">
                                                     <rect key="frame" x="20" y="19" width="30" height="50"/>
                                                     <state key="normal" title="Play"/>
-                                                    <connections>
-                                                        <action selector="playAction:" destination="BVP-2p-uL5" eventType="touchUpInside" id="CrX-RL-7Yj"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anN-h9-CwK">
                                                     <rect key="frame" x="66" y="19" width="32" height="50"/>
                                                     <state key="normal" title="Stop"/>
-                                                    <connections>
-                                                        <action selector="stopAction:" destination="BVP-2p-uL5" eventType="touchUpInside" id="bwT-iB-Wh5"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-p8-dBq">
                                                     <rect key="frame" x="114" y="33.5" width="42" height="21"/>
@@ -138,8 +132,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="musicTitleLabel" destination="wQB-p8-dBq" id="Sec-JD-IoS"/>
                                             <outlet property="playButton" destination="AQU-5A-GfL" id="6lc-Tf-rvE"/>
+                                            <outlet property="songTitleLabel" destination="wQB-p8-dBq" id="Sec-JD-IoS"/>
                                             <outlet property="stopButton" destination="anN-h9-CwK" id="ABt-pS-Yhn"/>
                                         </connections>
                                     </tableViewCell>

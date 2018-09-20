@@ -25,7 +25,7 @@ class SongListViewController: UIViewController {
 
         useCase.songs
             .bind(to: tableView.rx.items(cellIdentifier: SongListTableCell.reuseId, cellType: SongListTableCell.self)) { _, value, cell in
-                cell.configure(song: value, useCase: self.useCase)
+                cell.configure(state: value, useCase: self.useCase)
             }
             .disposed(by: disposeBag)
     }

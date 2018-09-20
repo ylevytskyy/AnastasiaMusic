@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import Domain
 import QorumLogs
 
@@ -15,25 +17,26 @@ class SongListTableCell: UITableViewCell {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var musicTitleLabel: UILabel!
+    @IBOutlet weak var songTitleLabel: UILabel!
 
-    private var song: Domain.Song!
-    private var useCase: Domain.SongUseCase!
+    private let viewModel = SongListCellViewModel()
+    private let songRelay = BehaviorRelay<Domain.Song?>(value: nil)
+    private let disposableBag = DisposeBag()
     
-    @IBAction func playAction(_ sender: Any) {
-        _ = useCase.play(song: song).subscribe()
-    }
-    
-    @IBAction func stopAction(_ sender: Any) {
-        _ = useCase.stop().subscribe()
+    override func awakeFromNib() {
+        let input = SongListCellViewModel.Input(
+            song: songRelay.filter { $0 != nil }.map { $0! }.asDriver(onErrorDriveWith: Driver<Song>.empty()),
+            playTrigger: playButton.rx.tap.asObservable(),
+            stopTrigger: stopButton.rx.tap.asObservable())
         
-        playButton.setTitle("Play", for: .normal)
-        playButton.isEnabled = true
+        let output = viewModel.transform(input: input)
+        
+        output.songTitle.drive(songTitleLabel.rx.text).disposed(by: disposableBag)
+        output.playButtonTitle.drive(playButton.rx.title(for: .normal)).disposed(by: disposableBag)
     }
     
-    func configure(song: Domain.Song, useCase: Domain.SongUseCase) {
-        self.song = song
-        self.useCase = useCase
-        self.musicTitleLabel.text = song.description
+    func configure(state: Domain.Song, useCase: Domain.SongUseCase) {
+        viewModel.useCase = useCase
+        songRelay.accept(state)
     }
 }

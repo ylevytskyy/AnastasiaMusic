@@ -39,14 +39,13 @@ class SongSearchViewController: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.searchResults
-            .drive(tableView.rx.items(cellIdentifier: SongSearchTableCell.reuseId, cellType: SongSearchTableCell.self)) { _, value, cell in
-                cell.textLabel?.text = value.description
+            .drive(tableView.rx.items(cellIdentifier: SongSearchTableCell.reuseId, cellType: SongSearchTableCell.self)) { _, state, cell in
+                cell.configure(state: state)
             }
             .disposed(by: disposeBag)
         
         output.isBusy
             .drive(onNext: { [weak self] isBusy in
-                QL2("isBusy \(isBusy)")
                 if isBusy {
                     self?.activityIndicator.startAnimating()
                 } else {

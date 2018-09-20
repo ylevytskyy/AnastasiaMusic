@@ -32,7 +32,12 @@ final class SongSearchViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        // Search trigger
+        let searchEnabler = Observable.combineLatest(input.queryTrigger, isBusyRelay)
         let searchResults = input.queryTrigger
+            .withLatestFrom(searchEnabler)
+            .filter { !$0.1 }
+            .map { $0.0 }
             .flatMap {
                 self.useCase
                     .search(query: $0)
@@ -40,17 +45,24 @@ final class SongSearchViewModel: ViewModelType {
             }
             .asDriver(onErrorJustReturn: [Song]())
         
+        // Download trigger
+        let downloadedEnabler = Observable.combineLatest(input.downloadTrigger, isBusyRelay)
         let downloadedTrigger = input.downloadTrigger
+            .withLatestFrom(downloadedEnabler)
+            .filter { !$0.1 }
+            .map { $0.0 }
             .flatMap {
                 self.useCase
                     .download(song: $0)
                     .do(onError: { _ in self.isBusyRelay.accept(false) }, onCompleted: { self.isBusyRelay.accept(false) }, onSubscribe: { self.isBusyRelay.accept(true) })
         }
         
+        // Navigate to List trigger
         let navigateToListTrigger = Observable<Void>
             .merge(input.listTrigger, downloadedTrigger)
             .asDriver(onErrorJustReturn: ())
         
+        // Output
         return Output(
             searchResults:searchResults,
             isBusy: isBusyRelay.asDriver(),

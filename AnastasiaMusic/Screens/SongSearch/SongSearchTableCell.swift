@@ -13,12 +13,10 @@ import Domain
 
 class SongSearchTableCell: UITableViewCell {
     public static let reuseId = "CellId"
-    
-    private(set) var song: Song!
 }
 
 extension SongSearchTableCell {
-    func configure(song: Song) {
-        self.song = song
+    func configure(state: Song) {
+        self.textLabel?.text = state.description
     }
 }

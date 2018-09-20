@@ -26,6 +26,7 @@
 		B4703F512153EDA200221467 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4703F502153EDA200221467 /* ViewModelType.swift */; };
 		B4703F532153EE0200221467 /* SongSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4703F522153EE0200221467 /* SongSearchViewModel.swift */; };
 		B4703F552153FAF800221467 /* SongSearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4703F542153FAF800221467 /* SongSearchTableCell.swift */; };
+		B47AAB5B215413C800EC7A95 /* SongListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47AAB5A215413C800EC7A95 /* SongListCellViewModel.swift */; };
 		B4833355212202530043709A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833354212202530043709A /* AppDelegate.swift */; };
 		B4833357212202530043709A /* SongSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4833356212202530043709A /* SongSearchViewController.swift */; };
 		B483335A212202530043709A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4833358212202530043709A /* Main.storyboard */; };
@@ -118,6 +119,7 @@
 		B4703F502153EDA200221467 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		B4703F522153EE0200221467 /* SongSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewModel.swift; sourceTree = "<group>"; };
 		B4703F542153FAF800221467 /* SongSearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchTableCell.swift; sourceTree = "<group>"; };
+		B47AAB5A215413C800EC7A95 /* SongListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCellViewModel.swift; sourceTree = "<group>"; };
 		B4833351212202530043709A /* AnastasiaMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnastasiaMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4833354212202530043709A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4833356212202530043709A /* SongSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSearchViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				B4848B67212CD61100C44F4A /* SongListViewController.swift */,
 				B4216759212CD8A500E723B3 /* SongListTableCell.swift */,
+				B47AAB5A215413C800EC7A95 /* SongListCellViewModel.swift */,
 			);
 			path = SongList;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				B421675A212CD8A500E723B3 /* SongListTableCell.swift in Sources */,
 				B4833355212202530043709A /* AppDelegate.swift in Sources */,
 				B4703F512153EDA200221467 /* ViewModelType.swift in Sources */,
+				B47AAB5B215413C800EC7A95 /* SongListCellViewModel.swift in Sources */,
 				B4848B68212CD61100C44F4A /* SongListViewController.swift in Sources */,
 				B4703F552153FAF800221467 /* SongSearchTableCell.swift in Sources */,
 			);
