@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import Domain
 import QorumLogs
 
@@ -33,7 +34,8 @@ extension ListSongsTableCell {
         let input = ListSongsCellViewModel.Input(
             song: songRelay.filter { $0 != nil }.map { $0! }.asDriver(onErrorDriveWith: Driver<Song>.empty()),
             playTrigger: playButton.rx.tap.asDriver(),
-            stopTrigger: stopButton.rx.tap.asDriver())
+            stopTrigger: stopButton.rx.tap.asDriver(),
+            deleteTrigger: rx.longPressGesture().asDriver().map { _ in })
         
         let output = viewModel.transform(input: input)
         
@@ -45,8 +47,7 @@ extension ListSongsTableCell {
 // MARK: - Implementation
 
 extension ListSongsTableCell {
-    func configure(state: Domain.Song, useCase: Domain.SongUseCase) {
-        viewModel.useCase = useCase
+    func configure(state: Domain.Song) {
         songRelay.accept(state)
     }
 }

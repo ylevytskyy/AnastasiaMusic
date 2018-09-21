@@ -47,7 +47,7 @@ private func download(url: URL, to localUrl: URL) -> Observable<Void> {
     }
 }
 
-final class SongUseCase : Domain.SongUseCase {
+final class SongUseCase : Domain.SongUseCaseType {
     var songs: Observable<[Song]> {
         return repository.entities
     }
@@ -123,7 +123,18 @@ final class SongUseCase : Domain.SongUseCase {
             return Disposables.create {}
         }.asObservable().observeOn(MainScheduler.instance)
     }
-    
+
+    func delete(song: Song) -> Observable<Void> {
+        return self.repository
+            .delete(description: song.description)
+            .map { _ in
+                guard let localURL = song.localURL else { return }
+                try? FileManager.default.removeItem(at: localURL)
+            }
+            .observeOn(MainScheduler.instance)
+            .flatMap { _ in self.repository.update() }
+    }
+
     func play(song: Song) -> Observable<Void> {
         return Single<Void>.create { observer in
             if let localURL = song.localURL {

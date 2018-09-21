@@ -21,5 +21,6 @@ target 'AnastasiaMusic' do
   pod 'RxSwiftExt/Core', '~> 3.3'
   pod 'SwiftSoup', '~> 1.7'
   pod 'Swinject', '~> 2.5'
-  pod 'FMDB', '~> 2.7.2'
+  pod 'FMDB', '~> 2.7'
+  pod 'RxGesture', '~> 1.2'
 end

@@ -14,7 +14,7 @@ import Domain
 // MARK: - SearchSongsViewModel
 
 final class SearchSongsViewModel {
-    private let useCase: Domain.SongUseCase
+    private let useCase: Domain.SongUseCaseType
     private let navigator: NavigatorType
     private let importHandler: ((URL?, UIDocumentBrowserViewController.ImportMode) -> Void)
     private let disposeBag = DisposeBag()
@@ -22,7 +22,7 @@ final class SearchSongsViewModel {
     private let isBusyRelay = BehaviorRelay(value: false)
     private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
     
-    init(useCase: Domain.SongUseCase, navigator: NavigatorType, _ importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
+    init(useCase: Domain.SongUseCaseType, navigator: NavigatorType, _ importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
         self.useCase = useCase
         self.navigator = navigator
         self.importHandler = importHandler

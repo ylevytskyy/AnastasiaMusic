@@ -14,6 +14,8 @@ import Platform
 // MARK: - NavigatorType
 
 protocol NavigatorType {
+    var navigationController: UINavigationController { get }
+    
     func toListSongs()
     func toSearchSongs()
 }
@@ -21,12 +23,11 @@ protocol NavigatorType {
 // MARK: - Navigator
 
 class Navigator {
+    let navigationController: UINavigationController
+
     private let storyBoard: UIStoryboard
-    private let navigationController: UINavigationController
-    private let useCaseProvider: Domain.UseCaseProvider
     
-    init(useCaseProvider: Domain.UseCaseProvider, navigationController: UINavigationController, storyBoard: UIStoryboard) {
-        self.useCaseProvider = useCaseProvider
+    init(navigationController: UINavigationController, storyBoard: UIStoryboard) {
         self.navigationController = navigationController
         self.storyBoard = storyBoard
     }
@@ -36,18 +37,12 @@ class Navigator {
 
 extension Navigator: NavigatorType {
     func toListSongs() {
-        guard let viewController = storyBoard.instantiateViewController(withIdentifier: ListSongsViewController.storyboardId) as? ListSongsViewController else {
-            fatalError()
-        }
-        viewController.useCase = useCaseProvider.makeSongUseCase()
+        guard let viewController = storyBoard.instantiateViewController(withIdentifier: ListSongsViewController.storyboardId) as? ListSongsViewController else { fatalError() }
         navigationController.pushViewController(viewController, animated: true)
     }
     
     func toSearchSongs() {
-        guard let viewController = storyBoard.instantiateViewController(withIdentifier: SearchSongsViewController.storyboardId) as? SearchSongsViewController else {
-            fatalError()
-        }
-        viewController.viewModel = SearchSongsViewModel(useCase: useCaseProvider.makeSongUseCase(), navigator: self)
+        guard let viewController = storyBoard.instantiateViewController(withIdentifier: SearchSongsViewController.storyboardId) as? SearchSongsViewController else { fatalError() }
         navigationController.pushViewController(viewController, animated: true)
     }
 }

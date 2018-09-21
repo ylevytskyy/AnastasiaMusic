@@ -13,7 +13,7 @@ import Platform
 final class Application {
     static let shared = Application()
     
-    let useCaseProvider: Domain.UseCaseProvider
+    let useCaseProvider: Domain.UseCaseProviderType
     
     private init() {
         QorumLogs.enabled = true
@@ -23,9 +23,6 @@ final class Application {
     
     func configureMainInterface(in window: UIWindow) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let navigationController = UINavigationController()
-//        let navigator = Navigator(useCaseProvider: useCaseProvider, navigationController: navigationController, storyBoard: storyboard)
         window.rootViewController = storyboard.instantiateViewController(withIdentifier: DocumentBrowserViewController.storyboardId)
-//        navigator.toSearchSongs()
     }
 }

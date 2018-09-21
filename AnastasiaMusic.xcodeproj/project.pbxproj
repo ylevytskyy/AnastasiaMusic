@@ -54,8 +54,8 @@
 		B4C131FF2153216300571796 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = B4C131FD2153216300571796 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4C132022153216300571796 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; };
 		B4C132032153216300571796 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B4C1320D215321AF00571796 /* SongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13209215321AF00571796 /* SongUseCase.swift */; };
-		B4C1320E215321AF00571796 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320A215321AF00571796 /* UseCaseProvider.swift */; };
+		B4C1320D215321AF00571796 /* SongUseCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13209215321AF00571796 /* SongUseCaseType.swift */; };
+		B4C1320E215321AF00571796 /* UseCaseProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320A215321AF00571796 /* UseCaseProviderType.swift */; };
 		B4C1320F215321AF00571796 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320C215321AF00571796 /* Song.swift */; };
 		B4ECE62121550BC700E7FEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62021550BC700E7FEA5 /* AppDelegate.swift */; };
 		B4ECE62321550BC700E7FEA5 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62221550BC700E7FEA5 /* DocumentBrowserViewController.swift */; };
@@ -231,8 +231,8 @@
 		B4C131FB2153216300571796 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C131FD2153216300571796 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		B4C131FE2153216300571796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4C13209215321AF00571796 /* SongUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongUseCase.swift; sourceTree = "<group>"; };
-		B4C1320A215321AF00571796 /* UseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		B4C13209215321AF00571796 /* SongUseCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongUseCaseType.swift; sourceTree = "<group>"; };
+		B4C1320A215321AF00571796 /* UseCaseProviderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProviderType.swift; sourceTree = "<group>"; };
 		B4C1320C215321AF00571796 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		B4D311772153A90B00772B3C /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		B4D9356F212CDA6E00C64F45 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -340,8 +340,8 @@
 		B41963152153EC0800F408A5 /* SearchSongs */ = {
 			isa = PBXGroup;
 			children = (
-				B4833356212202530043709A /* SearchSongsViewController.swift */,
 				B4703F522153EE0200221467 /* SearchSongsViewModel.swift */,
+				B4833356212202530043709A /* SearchSongsViewController.swift */,
 				B4703F542153FAF800221467 /* SearchSongsTableCell.swift */,
 			);
 			path = SearchSongs;
@@ -350,9 +350,9 @@
 		B41963162153EC2100F408A5 /* ListSongs */ = {
 			isa = PBXGroup;
 			children = (
+				B47AAB5A215413C800EC7A95 /* ListSongsCellViewModel.swift */,
 				B4848B67212CD61100C44F4A /* ListSongsViewController.swift */,
 				B4216759212CD8A500E723B3 /* ListSongsTableCell.swift */,
-				B47AAB5A215413C800EC7A95 /* ListSongsCellViewModel.swift */,
 			);
 			path = ListSongs;
 			sourceTree = "<group>";
@@ -453,11 +453,11 @@
 			isa = PBXGroup;
 			children = (
 				B4833353212202530043709A /* AnastasiaMusic */,
+				B4ECE61F21550BC700E7FEA5 /* AnastasiaMusicFiles */,
+				B453096D2154EBB500A5A74D /* Common */,
 				B4C131FC2153216300571796 /* Domain */,
 				B431FE712153235500874EBD /* Platform */,
 				B46DB5A521533A1A007A135C /* PlatformTests */,
-				B453096D2154EBB500A5A74D /* Common */,
-				B4ECE61F21550BC700E7FEA5 /* AnastasiaMusicFiles */,
 				B4833352212202530043709A /* Products */,
 				C89F356D51D48795ED652DF1 /* Pods */,
 				60DF355949E7FBD53F40D11C /* Frameworks */,
@@ -549,8 +549,8 @@
 		B4C13208215321AF00571796 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13209215321AF00571796 /* SongUseCase.swift */,
-				B4C1320A215321AF00571796 /* UseCaseProvider.swift */,
+				B4C13209215321AF00571796 /* SongUseCaseType.swift */,
+				B4C1320A215321AF00571796 /* UseCaseProviderType.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -918,6 +918,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -936,6 +937,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -1078,6 +1080,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -1096,6 +1099,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -1193,6 +1197,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -1211,6 +1216,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -1277,8 +1283,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4C1320F215321AF00571796 /* Song.swift in Sources */,
-				B4C1320E215321AF00571796 /* UseCaseProvider.swift in Sources */,
-				B4C1320D215321AF00571796 /* SongUseCase.swift in Sources */,
+				B4C1320E215321AF00571796 /* UseCaseProviderType.swift in Sources */,
+				B4C1320D215321AF00571796 /* SongUseCaseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1785,7 +1791,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.epam.AnastasiaMusicFiles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1805,7 +1811,7 @@
 					"@executable_path/Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.epam.AnastasiaMusicFiles;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

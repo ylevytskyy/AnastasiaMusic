@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swinject
 import QorumLogs
 import RxSwift
 import Domain
@@ -17,10 +18,6 @@ import Platform
 class ListSongsViewController: UIViewController {
     static let storyboardId = "ListSongsViewController"
     
-    var useCase: Domain.SongUseCase!
-    
-    private let disposeBag = DisposeBag()
-
     @IBOutlet weak var tableView: UITableView!
 }
 
@@ -30,10 +27,10 @@ extension ListSongsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        useCase.songs
+        let useCase = serviceLocator().resolve(SongUseCaseType.self)!
+        _ = useCase.songs
             .bind(to: tableView.rx.items(cellIdentifier: ListSongsTableCell.reuseId, cellType: ListSongsTableCell.self)) { _, value, cell in
-                cell.configure(state: value, useCase: self.useCase)
+                cell.configure(state: value)
             }
-            .disposed(by: disposeBag)
     }
 }

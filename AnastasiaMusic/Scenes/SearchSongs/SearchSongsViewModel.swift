@@ -14,18 +14,15 @@ import Domain
 // MARK: - SearchSongsViewModel
 
 final class SearchSongsViewModel {
-    private let useCase: Domain.SongUseCase
-    private let navigator: NavigatorType
     private let disposeBag = DisposeBag()
     
     private let isBusyRelay = BehaviorRelay(value: false)
     private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
-    
-    init(useCase: Domain.SongUseCase, navigator: NavigatorType) {
-        self.useCase = useCase
-        self.navigator = navigator
-    }
-    
+}
+
+// MARK: - ViewModelType
+
+extension SearchSongsViewModel: ViewModelType {
     struct Input {
         let queryTrigger: Driver<String>
         let listTrigger: Driver<Void>
@@ -37,10 +34,10 @@ final class SearchSongsViewModel {
         let isBusy: Driver<Bool>
         let downloadErrorTrigger: Driver<String>
     }
-}
 
-extension SearchSongsViewModel: ViewModelType {
     func transform(input: Input) -> Output {
+        let useCase = serviceLocator().resolve(SongUseCaseType.self)!
+        
         // Search trigger
         let searchEnabler = Driver.combineLatest(input.queryTrigger, isBusyRelay.asDriver())
         let searchResults = input.queryTrigger
@@ -48,9 +45,11 @@ extension SearchSongsViewModel: ViewModelType {
             .filter { !$0.1 }
             .map { $0.0 }
             .flatMap {
-                self.useCase
+                useCase
                     .search(query: $0)
-                    .do(onError: { _ in self.isBusyRelay.accept(false) }, onCompleted: { self.isBusyRelay.accept(false) }, onSubscribe: { self.isBusyRelay.accept(true) })
+                    .do(onError: { _ in self.isBusyRelay.accept(false) },
+                        onCompleted: { self.isBusyRelay.accept(false) },
+                        onSubscribe: { self.isBusyRelay.accept(true) })
                 .asDriver(onErrorJustReturn: [Song]())
             }
         
@@ -61,7 +60,7 @@ extension SearchSongsViewModel: ViewModelType {
             .filter { !$0.1 }
             .map { $0.0 }
             .flatMap { song in
-                self.useCase
+                useCase
                     .query(description: song.description)
                     .asDriver(onErrorJustReturn: [Song]())
                     .flatMap { (sameSongs:[Song]) -> Driver<Bool> in
@@ -70,10 +69,9 @@ extension SearchSongsViewModel: ViewModelType {
                         }
                         return sameSongs.isEmpty
                             ?
-                                self.useCase
+                                useCase
                                     .download(song: song)
-                                    .do(
-                                        onError: { error in
+                                    .do(onError: { error in
                                             self.isBusyRelay.accept(false)
                                             self.downloadErrorTriggerRelay.accept(error.localizedDescription)
                                     }, onCompleted: {
@@ -94,7 +92,10 @@ extension SearchSongsViewModel: ViewModelType {
         
         // Navigation
         Driver<Void>.merge(input.listTrigger, downloadedTrigger)
-            .drive(onNext: { _ in self.navigator.toListSongs() })
+            .drive(onNext: { _ in
+                let navigator = serviceLocator().resolve(NavigatorType.self)!
+                navigator.toListSongs()
+            })
             .disposed(by: disposeBag)
         
         // Output
