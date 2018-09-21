@@ -88,8 +88,8 @@ final class SongUseCase : Domain.SongUseCase {
         return repository.query(description: description)
     }
     
-    func download(song: Song) -> Observable<Void> {
-        return Single<Void>.create { single in
+    func download(song: Song) -> Observable<Song> {
+        return Single<Song>.create { single in
             do {
                 let documentDirectoryURL = URL(fileURLWithPath: FileManager.default.documentDirectory())
                 let localURL = documentDirectoryURL.appendingPathComponent("\(song.description).mp3")
@@ -102,10 +102,11 @@ final class SongUseCase : Domain.SongUseCase {
                         _ = Platform
                             .download(url: downloadUrl, to: localURL)
                             .subscribe(onNext: { _ in
+                                let newSong = song.with(remoteURL: downloadUrl, localURL: localURL)
                                 _ = self.repository
-                                    .insert(entity: song.with(remoteURL: downloadUrl, localURL: localURL))
+                                    .insert(entity: newSong)
                                     .subscribe(
-                                        onNext: { _ in single(.success(())) },
+                                        onNext: { _ in single(.success(newSong)) },
                                         onError: { error in single(.error(error))})
                             }, onError: { error in
                                 single(.error(error))

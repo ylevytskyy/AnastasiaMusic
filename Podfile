@@ -2,6 +2,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'AnastasiaMusic' do
+  target 'AnastasiaMusicFiles'
   target 'Common'
   target 'Domain'
   target 'Platform'
