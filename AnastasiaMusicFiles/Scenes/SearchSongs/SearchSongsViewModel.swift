@@ -75,7 +75,7 @@ extension SearchSongsViewModel: ViewModelType {
                                 self.useCase
                                     .download(song: song)
                                     .do(
-                                        onNext: { self.importHandler($0.localURL, .move) },
+                                        onNext: { self.importHandler($0.localURL, .copy) },
                                         onError: { error in
                                             self.isBusyRelay.accept(false)
                                             self.downloadErrorTriggerRelay.accept(error.localizedDescription)
