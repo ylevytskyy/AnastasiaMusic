@@ -1,16 +1,15 @@
 //
-//  Driver+Extensions.swift
+//  Reactive+Extensions.swift
 //  Common
 //
 //  Created by Yuriy Levytskyy on 9/21/18.
 //  Copyright © 2018 Yuriy Levytskyy. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import RxCocoa
 
-extension Observable {
-    public func asVoid() -> Observable<Void> {
-        return map { _ in }
-    }
+public extension Reactive where Base: UIViewController {
+    
 }

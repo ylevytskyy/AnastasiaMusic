@@ -99,7 +99,7 @@ final class Repository<T> where T: StorableType {
             self.dbQueue.inDatabase { db in
                 do {
                     let sqlString = "DELETE FROM \(T.sqlTableName) WHERE description=?"
-                    try db.executeQuery(sqlString, values: [description])
+                    try db.executeUpdate(sqlString, values: [description])
                     
                     observable(.success(()))
                 }

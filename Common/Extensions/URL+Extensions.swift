@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension URL {
+public extension URL {
     public init?(optionalString: String?) {
         guard let optionalString = optionalString else { return nil}
         self.init(string: optionalString)

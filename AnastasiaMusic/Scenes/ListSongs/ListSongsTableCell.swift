@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import Common
 import Domain
 import QorumLogs
 
@@ -31,11 +32,21 @@ class ListSongsTableCell: UITableViewCell {
 
 extension ListSongsTableCell {
     override func awakeFromNib() {
+        let deleteTrigger = rx
+            .longPressGesture()
+            .asObservable()
+            .withLatestFrom(songRelay.asDriver())
+            .filter { $0 != nil}
+            .flatMap { UIAlertController.confirmationAlert(in: self.parentViewController!, title: "Дійсно бажаєш видалити пісню?", message: $0!.description) }
+            .filter { $0 }
+            .asVoid()
+            .asDriver(onErrorJustReturn: ())
+        
         let input = ListSongsCellViewModel.Input(
             song: songRelay.filter { $0 != nil }.map { $0! }.asDriver(onErrorDriveWith: Driver<Song>.empty()),
             playTrigger: playButton.rx.tap.asDriver(),
             stopTrigger: stopButton.rx.tap.asDriver(),
-            deleteTrigger: rx.longPressGesture().asDriver().map { _ in })
+            deleteTrigger: deleteTrigger)
         
         let output = viewModel.transform(input: input)
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension FileManager {
+public extension FileManager {
     public func documentDirectory() -> String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
     }
