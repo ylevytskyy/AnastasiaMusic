@@ -8,8 +8,11 @@
 
 import SwiftSoup
 import RxSwift
-import Domain
 import FMDB
+import Common
+import Domain
+
+// MARK: - Song
 
 extension Song {
     static func make(query: String, searchResultHtml: String) -> [Song] {
@@ -31,10 +34,10 @@ extension Song {
         return zip(elements, attributes)
             .map {
                 return Domain.Song(
+                    description: $0,
                     artist: nil,
                     title: nil,
                     query: query,
-                    description: $0,
                     detailsURL: URL(string: "http://mp3party.net/\($1)")!,
                     remoteURL: nil,
                     localURL: nil,
@@ -45,29 +48,31 @@ extension Song {
     
     func with(remoteURL: URL, localURL: URL) -> Song {
         return Song(
+            description: description,
             artist: artist,
             title: title,
             query: query,
-            description: description,
             detailsURL: detailsURL,
             remoteURL: remoteURL,
             localURL: localURL,
             bytesDownloaded: bytesDownloaded,
-            isDownloaded: isDownloaded)
+            isDownloaded: true)
     }
 }
+
+// MARK: - StorableType
 
 extension Song: StorableType {
     static let sqlTableName = "Song"
     
-    static let sqlColumnNames = ["artist", "title", "query", "description", "detailsURL", "remoteURL", "localURL", "bytesDownloaded", "isDownloaded"]
-    static let sqlColumnDescriptions = ["TEXT NULL", "TEXT NULL", "TEXT", "TEXT NULL", "TEXT", "TEXT", "TEXT", "INT", "INT"]
+    static let sqlColumnNames = ["description", "artist", "title", "query", "detailsURL", "remoteURL", "localURL", "bytesDownloaded", "isDownloaded"]
+    static let sqlColumnDescriptions = ["TEXT NOT NULL PRIMARY KEY", "TEXT NULL", "TEXT", "TEXT NULL", "TEXT", "TEXT", "TEXT", "INT", "INT"]
     
     init(resultSet: FMResultSet) {
+        self.description = resultSet.string(forColumn: "description")!
         self.artist = resultSet.string(forColumn: "artist")
         self.title = resultSet.string(forColumn: "title")
         self.query = resultSet.string(forColumn: "query")!
-        self.description = resultSet.string(forColumn: "description")!
         self.detailsURL = URL(string: resultSet.string(forColumn: "detailsURL")!)!
         self.remoteURL = URL(optionalString: resultSet.string(forColumn: "remoteURL"))
         self.localURL = URL(optionalString: resultSet.string(forColumn: "localURL"))
@@ -77,24 +82,24 @@ extension Song: StorableType {
 
     func sqlValue(column: String) -> Any? {
         switch column {
-            case "artist":
-                return artist
-            case "title":
-                return title
-            case "query":
-                return query
-            case "description":
-                return description
-            case "detailsURL":
-                return detailsURL
-            case "remoteURL":
-                return remoteURL
-            case "localURL":
-                return localURL
-            case "bytesDownloaded":
-                return bytesDownloaded
-            case "isDownloaded":
-                return isDownloaded
+        case "description":
+            return description
+        case "artist":
+            return artist
+        case "title":
+            return title
+        case "query":
+            return query
+        case "detailsURL":
+            return detailsURL
+        case "remoteURL":
+            return remoteURL
+        case "localURL":
+            return localURL
+        case "bytesDownloaded":
+            return bytesDownloaded
+        case "isDownloaded":
+            return isDownloaded
         default:
             return nil
         }

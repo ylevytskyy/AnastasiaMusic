@@ -9,10 +9,10 @@
 import Foundation
 
 public struct Song {
+    public let description: String
     public let artist: String?
     public let title: String?
     public let query: String
-    public let description: String
     public let detailsURL: URL
     public let remoteURL: URL?
     public let localURL: URL?
@@ -20,19 +20,19 @@ public struct Song {
     public let isDownloaded: Bool
     
     public init(
+        description: String,
         artist: String?,
         title: String?,
         query: String,
-        description: String,
         detailsURL: URL,
         remoteURL: URL?,
         localURL: URL?,
         bytesDownloaded: Int,
         isDownloaded: Bool) {
+        self.description = description
         self.artist = artist
         self.title = title
         self.query = query
-        self.description = description
         self.detailsURL = detailsURL
         self.remoteURL = remoteURL
         self.localURL = localURL

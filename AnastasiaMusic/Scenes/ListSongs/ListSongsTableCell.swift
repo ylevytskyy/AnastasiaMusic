@@ -1,5 +1,5 @@
 //
-//  SongListTableCell.swift
+//  ListSongsTableCell.swift
 //  AnastasiaMusic
 //
 //  Created by Yuriy Levytskyy on 8/22/18.
@@ -12,12 +12,12 @@ import RxCocoa
 import Domain
 import QorumLogs
 
-// MARK: - SongListTableCell
+// MARK: - ListSongsTableCell
 
-class SongListTableCell: UITableViewCell {
+class ListSongsTableCell: UITableViewCell {
     public static let reuseId = "CellId"
     
-    private let viewModel = SongListCellViewModel()
+    private let viewModel = ListSongsCellViewModel()
     private let songRelay = BehaviorRelay<Domain.Song?>(value: nil)
     private let disposableBag = DisposeBag()
     
@@ -28,9 +28,9 @@ class SongListTableCell: UITableViewCell {
 
 // MARK: - UITableViewCell
 
-extension SongListTableCell {
+extension ListSongsTableCell {
     override func awakeFromNib() {
-        let input = SongListCellViewModel.Input(
+        let input = ListSongsCellViewModel.Input(
             song: songRelay.filter { $0 != nil }.map { $0! }.asDriver(onErrorDriveWith: Driver<Song>.empty()),
             playTrigger: playButton.rx.tap.asDriver(),
             stopTrigger: stopButton.rx.tap.asDriver())
@@ -44,7 +44,7 @@ extension SongListTableCell {
 
 // MARK: - Implementation
 
-extension SongListTableCell {
+extension ListSongsTableCell {
     func configure(state: Domain.Song, useCase: Domain.SongUseCase) {
         viewModel.useCase = useCase
         songRelay.accept(state)

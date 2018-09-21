@@ -1,5 +1,5 @@
 //
-//  SongListCellViewModel.swift
+//  ListSongsCellViewModel.swift
 //  AnastasiaMusic
 //
 //  Created by Yuriy Levytskyy on 9/20/18.
@@ -10,7 +10,17 @@ import RxSwift
 import RxCocoa
 import Domain
 
-final class SongListCellViewModel: ViewModelType {
+// MARK; - ListSongsCellViewModel
+
+final class ListSongsCellViewModel {
+    public var useCase: Domain.SongUseCase!
+    
+    private let disposeBag = DisposeBag()
+}
+
+// MARK: - ViewModelType
+
+extension ListSongsCellViewModel: ViewModelType {
     struct Input {
         let song: Driver<Domain.Song>
         let playTrigger: Driver<Void>
@@ -21,10 +31,6 @@ final class SongListCellViewModel: ViewModelType {
         let songTitle: Driver<String>
         let playButtonTitle: Driver<String>
     }
-    
-    public var useCase: Domain.SongUseCase!
-    
-    private let disposeBag = DisposeBag()
     
     func transform(input: Input) -> Output {
         input.stopTrigger
@@ -42,7 +48,6 @@ final class SongListCellViewModel: ViewModelType {
             .merge(input.playTrigger.map { _ in true }, input.stopTrigger.map { _ in false })
             .map { $0 ? "Грається" : "Грати" }
         
-        // Output
         return Output(
             songTitle: input.song.map { $0.description },
             playButtonTitle: playButtonTitle)

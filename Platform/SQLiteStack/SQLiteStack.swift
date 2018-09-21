@@ -8,6 +8,7 @@
 
 import QorumLogs
 import FMDB
+import Common
 
 final class SQLiteStack {
     private let dbFileName = "db.sqlite3"
