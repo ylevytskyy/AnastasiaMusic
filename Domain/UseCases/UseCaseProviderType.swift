@@ -8,6 +8,6 @@
 
 import RxSwift
 
-public protocol UseCaseProvider {
-    func makeSongUseCase() -> SongUseCase
+public protocol UseCaseProviderType {
+    func makeSongUseCase() -> SongUseCaseType
 }

@@ -47,7 +47,7 @@ private func download(url: URL, to localUrl: URL) -> Observable<Void> {
     }
 }
 
-final class SongUseCase : Domain.SongUseCase {
+final class SongUseCase : Domain.SongUseCaseType {
     var songs: Observable<[Song]> {
         return repository.entities
     }
@@ -88,8 +88,8 @@ final class SongUseCase : Domain.SongUseCase {
         return repository.query(description: description)
     }
     
-    func download(song: Song) -> Observable<Void> {
-        return Single<Void>.create { single in
+    func download(song: Song) -> Observable<Song> {
+        return Single<Song>.create { single in
             do {
                 let documentDirectoryURL = URL(fileURLWithPath: FileManager.default.documentDirectory())
                 let localURL = documentDirectoryURL.appendingPathComponent("\(song.description).mp3")
@@ -102,10 +102,11 @@ final class SongUseCase : Domain.SongUseCase {
                         _ = Platform
                             .download(url: downloadUrl, to: localURL)
                             .subscribe(onNext: { _ in
+                                let newSong = song.with(remoteURL: downloadUrl, localURL: localURL)
                                 _ = self.repository
-                                    .insert(entity: song.with(remoteURL: downloadUrl, localURL: localURL))
+                                    .insert(entity: newSong)
                                     .subscribe(
-                                        onNext: { _ in single(.success(())) },
+                                        onNext: { _ in single(.success(newSong)) },
                                         onError: { error in single(.error(error))})
                             }, onError: { error in
                                 single(.error(error))
@@ -122,7 +123,18 @@ final class SongUseCase : Domain.SongUseCase {
             return Disposables.create {}
         }.asObservable().observeOn(MainScheduler.instance)
     }
-    
+
+    func delete(song: Song) -> Observable<Void> {
+        return self.repository
+            .delete(description: song.description)
+            .map { _ in
+                guard let localURL = song.localURL else { return }
+                try? FileManager.default.removeItem(at: localURL)
+            }
+            .observeOn(MainScheduler.instance)
+            .flatMap { _ in self.repository.update() }
+    }
+
     func play(song: Song) -> Observable<Void> {
         return Single<Void>.create { observer in
             if let localURL = song.localURL {

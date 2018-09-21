@@ -9,30 +9,40 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Common.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>24</integer>
-		</dict>
-		<key>Domain.xcscheme_^#shared#^_</key>
+		<key>AnastasiaMusicFiles.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Platform.xcscheme_^#shared#^_</key>
+		<key>Common.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>PlatformTests.xcscheme_^#shared#^_</key>
+		<key>Domain.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+		<key>Platform.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>PlatformTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>B431FE6F2153235500874EBD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B453096B2154EBB500A5A74D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -48,6 +58,11 @@
 			<true/>
 		</dict>
 		<key>B4C131FA2153216300571796</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4ECE61D21550BC700E7FEA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

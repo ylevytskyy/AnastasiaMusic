@@ -9,7 +9,7 @@
 import RxSwift
 import Domain
 
-public class UseCaseProvider: Domain.UseCaseProvider {
+public class UseCaseProvider: Domain.UseCaseProviderType {
     private let sqliteStack = SQLiteStack()
     private let repository: Repository<Domain.Song>
     
@@ -17,7 +17,7 @@ public class UseCaseProvider: Domain.UseCaseProvider {
         self.repository = Repository<Domain.Song>(dbQueue: sqliteStack.dbQueue)
     }
     
-    public func makeSongUseCase() -> Domain.SongUseCase {
+    public func makeSongUseCase() -> Domain.SongUseCaseType {
         return SongUseCase(repository: repository)
     }
 }

@@ -91,9 +91,26 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-            }.asObservable()
+        }.asObservable()
     }
     
+    public func delete(description: String) -> Observable<Void> {
+        return Single<Void>.create { observable in
+            self.dbQueue.inDatabase { db in
+                do {
+                    let sqlString = "DELETE FROM \(T.sqlTableName) WHERE description=?"
+                    try db.executeQuery(sqlString, values: [description])
+                    
+                    observable(.success(()))
+                }
+                catch let error {
+                    observable(.error(error))
+                }
+            }
+            return Disposables.create {}
+        }.asObservable()
+    }
+
     private func createTable() -> Observable<Void> {
         return Single<Void>.create { observable in
             self.dbQueue.inDatabase { db in

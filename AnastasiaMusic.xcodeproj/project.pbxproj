@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A5108F3D4571ABAE36864CE /* Pods_AnastasiaMusic_Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90432BE0E5104012E287E141 /* Pods_AnastasiaMusic_Common.framework */; };
 		17580286063913A2ABC9608E /* Pods_AnastasiaMusic_Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36432D712A5BA80EE7A0AC63 /* Pods_AnastasiaMusic_Platform.framework */; };
+		274182D4C6DD09F5DE7E1B6A /* Pods_AnastasiaMusic_AnastasiaMusicFiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B110F1047AD4C98464F49E4 /* Pods_AnastasiaMusic_AnastasiaMusicFiles.framework */; };
 		3B4D7A20F3D49306427BD506 /* Pods_AnastasiaMusic_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEBAF611CB0B174359EE3E1 /* Pods_AnastasiaMusic_Domain.framework */; };
 		B421675A212CD8A500E723B3 /* ListSongsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4216759212CD8A500E723B3 /* ListSongsTableCell.swift */; };
 		B431FE742153235500874EBD /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = B431FE722153235500874EBD /* Platform.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,12 +38,32 @@
 		B483335C212202540043709A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B483335B212202540043709A /* Assets.xcassets */; };
 		B483335F212202540043709A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B483335D212202540043709A /* LaunchScreen.storyboard */; };
 		B4848B68212CD61100C44F4A /* ListSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4848B67212CD61100C44F4A /* ListSongsViewController.swift */; };
+		B4891ABD21550E2E0080D08C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4891ABC21550E2E0080D08C /* Application.swift */; };
+		B49D04DA215510F200BA2A91 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D04D5215510F200BA2A91 /* Navigator.swift */; };
+		B49D04DB215510F200BA2A91 /* SearchSongsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D04D7215510F200BA2A91 /* SearchSongsTableCell.swift */; };
+		B49D04DC215510F200BA2A91 /* SearchSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D04D8215510F200BA2A91 /* SearchSongsViewController.swift */; };
+		B49D04DD215510F200BA2A91 /* SearchSongsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D04D9215510F200BA2A91 /* SearchSongsViewModel.swift */; };
+		B49D04E0215510FC00BA2A91 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D04DF215510FC00BA2A91 /* ViewModelType.swift */; };
+		B49D04E121551CE100BA2A91 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; };
+		B49D04E221551CE100BA2A91 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B49D04E321551CE100BA2A91 /* Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B431FE702153235500874EBD /* Platform.framework */; };
+		B49D04E421551CE100BA2A91 /* Platform.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B431FE702153235500874EBD /* Platform.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B49D04E521551CE100BA2A91 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B453096C2154EBB500A5A74D /* Common.framework */; };
+		B49D04E621551CE100BA2A91 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B453096C2154EBB500A5A74D /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B49D04E821551CEC00BA2A91 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B464CEEA212D390F009E80BE /* AVFoundation.framework */; };
 		B4C131FF2153216300571796 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = B4C131FD2153216300571796 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4C132022153216300571796 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; };
 		B4C132032153216300571796 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4C131FB2153216300571796 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B4C1320D215321AF00571796 /* SongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13209215321AF00571796 /* SongUseCase.swift */; };
-		B4C1320E215321AF00571796 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320A215321AF00571796 /* UseCaseProvider.swift */; };
+		B4C1320D215321AF00571796 /* SongUseCaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C13209215321AF00571796 /* SongUseCaseType.swift */; };
+		B4C1320E215321AF00571796 /* UseCaseProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320A215321AF00571796 /* UseCaseProviderType.swift */; };
 		B4C1320F215321AF00571796 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1320C215321AF00571796 /* Song.swift */; };
+		B4ECE62121550BC700E7FEA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62021550BC700E7FEA5 /* AppDelegate.swift */; };
+		B4ECE62321550BC700E7FEA5 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62221550BC700E7FEA5 /* DocumentBrowserViewController.swift */; };
+		B4ECE62521550BC700E7FEA5 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62421550BC700E7FEA5 /* DocumentViewController.swift */; };
+		B4ECE62721550BC700E7FEA5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ECE62621550BC700E7FEA5 /* Document.swift */; };
+		B4ECE62A21550BC700E7FEA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4ECE62821550BC700E7FEA5 /* Main.storyboard */; };
+		B4ECE62C21550BC800E7FEA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4ECE62B21550BC800E7FEA5 /* Assets.xcassets */; };
+		B4ECE62F21550BC800E7FEA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4ECE62D21550BC800E7FEA5 /* LaunchScreen.storyboard */; };
 		B4ED63132154ED9D00145508 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D311772153A90B00772B3C /* URL+Extensions.swift */; };
 		B4ED63142154EDA900145508 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46E8AD621539FD1003EBB75 /* FileManager+Extensions.swift */; };
 		B4ED63172154EF7500145508 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED63162154EF7500145508 /* Application.swift */; };
@@ -101,9 +122,43 @@
 			remoteGlobalIDString = B4C131FA2153216300571796;
 			remoteInfo = Domain;
 		};
+		B4ECE63421550DBD00E7FEA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4833349212202530043709A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B453096B2154EBB500A5A74D;
+			remoteInfo = Common;
+		};
+		B4ECE63621550DBD00E7FEA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4833349212202530043709A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4C131FA2153216300571796;
+			remoteInfo = Domain;
+		};
+		B4ECE63821550DBD00E7FEA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4833349212202530043709A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B431FE6F2153235500874EBD;
+			remoteInfo = Platform;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B49D04E721551CE200BA2A91 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B49D04E621551CE100BA2A91 /* Common.framework in Embed Frameworks */,
+				B49D04E221551CE100BA2A91 /* Domain.framework in Embed Frameworks */,
+				B49D04E421551CE100BA2A91 /* Platform.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4C132072153216300571796 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,13 +178,16 @@
 		0956F4DD47F6492A041019D3 /* Pods_AnastasiaMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC070557ACB18570C6546ED /* Pods-AnastasiaMusic-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Domain/Pods-AnastasiaMusic-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		181538C879066B4C6EC37257 /* Pods-AnastasiaMusic-Platform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Platform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Platform/Pods-AnastasiaMusic-Platform.debug.xcconfig"; sourceTree = "<group>"; };
+		22B9994B2B7F8DAB16EFA111 /* Pods-AnastasiaMusic-AnastasiaMusicFiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-AnastasiaMusicFiles.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-AnastasiaMusicFiles/Pods-AnastasiaMusic-AnastasiaMusicFiles.release.xcconfig"; sourceTree = "<group>"; };
 		2B26EAA4870B7C7F54474DBF /* Pods-AnastasiaMusic-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Domain/Pods-AnastasiaMusic-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		305F0C5254EE76E5B64D3692 /* Pods-AnastasiaMusic-Platform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Platform.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Platform/Pods-AnastasiaMusic-Platform.release.xcconfig"; sourceTree = "<group>"; };
 		36432D712A5BA80EE7A0AC63 /* Pods_AnastasiaMusic_Platform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_Platform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		389DB28080B0D79313A2ECDF /* Pods-AnastasiaMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		48CFB8D6A4C17870C8676484 /* Pods-AnastasiaMusic-PlatformTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-PlatformTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-PlatformTests/Pods-AnastasiaMusic-PlatformTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B110F1047AD4C98464F49E4 /* Pods_AnastasiaMusic_AnastasiaMusicFiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_AnastasiaMusicFiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53093FFEDBAB524F99CED3F4 /* Pods-AnastasiaMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic.release.xcconfig"; sourceTree = "<group>"; };
 		671B7FA840A0CCE264DE67ED /* Pods_AnastasiaMusic_PlatformTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_PlatformTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FECD44F9C0793B4A6BD450E /* Pods-AnastasiaMusic-AnastasiaMusicFiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-AnastasiaMusicFiles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-AnastasiaMusicFiles/Pods-AnastasiaMusic-AnastasiaMusicFiles.debug.xcconfig"; sourceTree = "<group>"; };
 		90432BE0E5104012E287E141 /* Pods_AnastasiaMusic_Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9102287C4D9AD4C712904FA1 /* Pods-AnastasiaMusic-Common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Common.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Common/Pods-AnastasiaMusic-Common.debug.xcconfig"; sourceTree = "<group>"; };
 		972F66D215746D953A656602 /* Pods-AnastasiaMusic-Common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-Common.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-Common/Pods-AnastasiaMusic-Common.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,14 +222,29 @@
 		B483335E212202540043709A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4833360212202540043709A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4848B67212CD61100C44F4A /* ListSongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSongsViewController.swift; sourceTree = "<group>"; };
+		B4891ABC21550E2E0080D08C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		B49D04D5215510F200BA2A91 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		B49D04D7215510F200BA2A91 /* SearchSongsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongsTableCell.swift; sourceTree = "<group>"; };
+		B49D04D8215510F200BA2A91 /* SearchSongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongsViewController.swift; sourceTree = "<group>"; };
+		B49D04D9215510F200BA2A91 /* SearchSongsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSongsViewModel.swift; sourceTree = "<group>"; };
+		B49D04DF215510FC00BA2A91 /* ViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		B4C131FB2153216300571796 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C131FD2153216300571796 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		B4C131FE2153216300571796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4C13209215321AF00571796 /* SongUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongUseCase.swift; sourceTree = "<group>"; };
-		B4C1320A215321AF00571796 /* UseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		B4C13209215321AF00571796 /* SongUseCaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongUseCaseType.swift; sourceTree = "<group>"; };
+		B4C1320A215321AF00571796 /* UseCaseProviderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProviderType.swift; sourceTree = "<group>"; };
 		B4C1320C215321AF00571796 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		B4D311772153A90B00772B3C /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		B4D9356F212CDA6E00C64F45 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		B4ECE61E21550BC700E7FEA5 /* AnastasiaMusicFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnastasiaMusicFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4ECE62021550BC700E7FEA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4ECE62221550BC700E7FEA5 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		B4ECE62421550BC700E7FEA5 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		B4ECE62621550BC700E7FEA5 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		B4ECE62921550BC700E7FEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4ECE62B21550BC800E7FEA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4ECE62E21550BC800E7FEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4ECE63021550BC800E7FEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4ED63162154EF7500145508 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		B4ED63202154FA6400145508 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		DEEBAF611CB0B174359EE3E1 /* Pods_AnastasiaMusic_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +297,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4ECE61B21550BC700E7FEA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B49D04E821551CEC00BA2A91 /* AVFoundation.framework in Frameworks */,
+				B49D04E121551CE100BA2A91 /* Domain.framework in Frameworks */,
+				B49D04E521551CE100BA2A91 /* Common.framework in Frameworks */,
+				274182D4C6DD09F5DE7E1B6A /* Pods_AnastasiaMusic_AnastasiaMusicFiles.framework in Frameworks */,
+				B49D04E321551CE100BA2A91 /* Platform.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -237,6 +322,7 @@
 				36432D712A5BA80EE7A0AC63 /* Pods_AnastasiaMusic_Platform.framework */,
 				671B7FA840A0CCE264DE67ED /* Pods_AnastasiaMusic_PlatformTests.framework */,
 				90432BE0E5104012E287E141 /* Pods_AnastasiaMusic_Common.framework */,
+				4B110F1047AD4C98464F49E4 /* Pods_AnastasiaMusic_AnastasiaMusicFiles.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,8 +340,8 @@
 		B41963152153EC0800F408A5 /* SearchSongs */ = {
 			isa = PBXGroup;
 			children = (
-				B4833356212202530043709A /* SearchSongsViewController.swift */,
 				B4703F522153EE0200221467 /* SearchSongsViewModel.swift */,
+				B4833356212202530043709A /* SearchSongsViewController.swift */,
 				B4703F542153FAF800221467 /* SearchSongsTableCell.swift */,
 			);
 			path = SearchSongs;
@@ -264,9 +350,9 @@
 		B41963162153EC2100F408A5 /* ListSongs */ = {
 			isa = PBXGroup;
 			children = (
+				B47AAB5A215413C800EC7A95 /* ListSongsCellViewModel.swift */,
 				B4848B67212CD61100C44F4A /* ListSongsViewController.swift */,
 				B4216759212CD8A500E723B3 /* ListSongsTableCell.swift */,
-				B47AAB5A215413C800EC7A95 /* ListSongsCellViewModel.swift */,
 			);
 			path = ListSongs;
 			sourceTree = "<group>";
@@ -367,10 +453,11 @@
 			isa = PBXGroup;
 			children = (
 				B4833353212202530043709A /* AnastasiaMusic */,
+				B4ECE61F21550BC700E7FEA5 /* AnastasiaMusicFiles */,
+				B453096D2154EBB500A5A74D /* Common */,
 				B4C131FC2153216300571796 /* Domain */,
 				B431FE712153235500874EBD /* Platform */,
 				B46DB5A521533A1A007A135C /* PlatformTests */,
-				B453096D2154EBB500A5A74D /* Common */,
 				B4833352212202530043709A /* Products */,
 				C89F356D51D48795ED652DF1 /* Pods */,
 				60DF355949E7FBD53F40D11C /* Frameworks */,
@@ -385,6 +472,7 @@
 				B431FE702153235500874EBD /* Platform.framework */,
 				B46DB5A421533A1A007A135C /* PlatformTests.xctest */,
 				B453096C2154EBB500A5A74D /* Common.framework */,
+				B4ECE61E21550BC700E7FEA5 /* AnastasiaMusicFiles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -404,6 +492,49 @@
 			path = AnastasiaMusic;
 			sourceTree = "<group>";
 		};
+		B4891ABB21550E220080D08C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B4891ABC21550E2E0080D08C /* Application.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B49D04D3215510F200BA2A91 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B49D04D4215510F200BA2A91 /* Navigator */,
+				B49D04D6215510F200BA2A91 /* SearchSongs */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B49D04D4215510F200BA2A91 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				B49D04D5215510F200BA2A91 /* Navigator.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		B49D04D6215510F200BA2A91 /* SearchSongs */ = {
+			isa = PBXGroup;
+			children = (
+				B49D04D7215510F200BA2A91 /* SearchSongsTableCell.swift */,
+				B49D04D8215510F200BA2A91 /* SearchSongsViewController.swift */,
+				B49D04D9215510F200BA2A91 /* SearchSongsViewModel.swift */,
+			);
+			path = SearchSongs;
+			sourceTree = "<group>";
+		};
+		B49D04DE215510FC00BA2A91 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B49D04DF215510FC00BA2A91 /* ViewModelType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B4C131FC2153216300571796 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,8 +549,8 @@
 		B4C13208215321AF00571796 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				B4C13209215321AF00571796 /* SongUseCase.swift */,
-				B4C1320A215321AF00571796 /* UseCaseProvider.swift */,
+				B4C13209215321AF00571796 /* SongUseCaseType.swift */,
+				B4C1320A215321AF00571796 /* UseCaseProviderType.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -430,6 +561,24 @@
 				B4C1320C215321AF00571796 /* Song.swift */,
 			);
 			path = Entries;
+			sourceTree = "<group>";
+		};
+		B4ECE61F21550BC700E7FEA5 /* AnastasiaMusicFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B4891ABB21550E220080D08C /* Application */,
+				B49D04DE215510FC00BA2A91 /* Common */,
+				B49D04D3215510F200BA2A91 /* Scenes */,
+				B4ECE62021550BC700E7FEA5 /* AppDelegate.swift */,
+				B4ECE62221550BC700E7FEA5 /* DocumentBrowserViewController.swift */,
+				B4ECE62421550BC700E7FEA5 /* DocumentViewController.swift */,
+				B4ECE62621550BC700E7FEA5 /* Document.swift */,
+				B4ECE62821550BC700E7FEA5 /* Main.storyboard */,
+				B4ECE62B21550BC800E7FEA5 /* Assets.xcassets */,
+				B4ECE62D21550BC800E7FEA5 /* LaunchScreen.storyboard */,
+				B4ECE63021550BC800E7FEA5 /* Info.plist */,
+			);
+			path = AnastasiaMusicFiles;
 			sourceTree = "<group>";
 		};
 		B4ED63152154EF6900145508 /* Application */ = {
@@ -461,6 +610,8 @@
 				EADFEA3E82865894725AC4DD /* Pods-AnastasiaMusic-PlatformTests.release.xcconfig */,
 				9102287C4D9AD4C712904FA1 /* Pods-AnastasiaMusic-Common.debug.xcconfig */,
 				972F66D215746D953A656602 /* Pods-AnastasiaMusic-Common.release.xcconfig */,
+				6FECD44F9C0793B4A6BD450E /* Pods-AnastasiaMusic-AnastasiaMusicFiles.debug.xcconfig */,
+				22B9994B2B7F8DAB16EFA111 /* Pods-AnastasiaMusic-AnastasiaMusicFiles.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -603,6 +754,30 @@
 			productReference = B4C131FB2153216300571796 /* Domain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B4ECE61D21550BC700E7FEA5 /* AnastasiaMusicFiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4ECE63321550BC800E7FEA5 /* Build configuration list for PBXNativeTarget "AnastasiaMusicFiles" */;
+			buildPhases = (
+				4B462B17240C856E3D1DCD3B /* [CP] Check Pods Manifest.lock */,
+				B4ECE61A21550BC700E7FEA5 /* Sources */,
+				B4ECE61B21550BC700E7FEA5 /* Frameworks */,
+				B4ECE61C21550BC700E7FEA5 /* Resources */,
+				9EA745530F3633C2953B661C /* [CP] Embed Pods Frameworks */,
+				0977411BDDF1866088BB148E /* [CP] Copy Pods Resources */,
+				B49D04E721551CE200BA2A91 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4ECE63521550DBD00E7FEA5 /* PBXTargetDependency */,
+				B4ECE63721550DBD00E7FEA5 /* PBXTargetDependency */,
+				B4ECE63921550DBD00E7FEA5 /* PBXTargetDependency */,
+			);
+			name = AnastasiaMusicFiles;
+			productName = AnastasiaMusicFiles;
+			productReference = B4ECE61E21550BC700E7FEA5 /* AnastasiaMusicFiles.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -630,6 +805,9 @@
 					B4C131FA2153216300571796 = {
 						CreatedOnToolsVersion = 10.0;
 					};
+					B4ECE61D21550BC700E7FEA5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 				};
 			};
 			buildConfigurationList = B483334C212202530043709A /* Build configuration list for PBXProject "AnastasiaMusic" */;
@@ -646,6 +824,7 @@
 			projectRoot = "";
 			targets = (
 				B4833350212202530043709A /* AnastasiaMusic */,
+				B4ECE61D21550BC700E7FEA5 /* AnastasiaMusicFiles */,
 				B453096B2154EBB500A5A74D /* Common */,
 				B4C131FA2153216300571796 /* Domain */,
 				B431FE6F2153235500874EBD /* Platform */,
@@ -693,6 +872,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4ECE61C21550BC700E7FEA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4ECE62F21550BC800E7FEA5 /* LaunchScreen.storyboard in Resources */,
+				B4ECE62C21550BC800E7FEA5 /* Assets.xcassets in Resources */,
+				B4ECE62A21550BC700E7FEA5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -729,6 +918,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -747,6 +937,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -755,6 +946,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0977411BDDF1866088BB148E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic-AnastasiaMusicFiles/Pods-AnastasiaMusic-AnastasiaMusicFiles-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0F6B7F595E27910887171242 /* [CP] Copy Pods Resources */ = {
@@ -805,6 +1011,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic/Pods-AnastasiaMusic-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4B462B17240C856E3D1DCD3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnastasiaMusic-AnastasiaMusicFiles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		86A18ACF5720CF6B37458DF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -836,6 +1060,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic-Domain/Pods-AnastasiaMusic-Domain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EA745530F3633C2953B661C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic-AnastasiaMusicFiles/Pods-AnastasiaMusic-AnastasiaMusicFiles-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Curry/Curry.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/QorumLogs/QorumLogs.framework",
+				"${BUILT_PRODUCTS_DIR}/Runes/Runes.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Curry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QorumLogs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Runes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnastasiaMusic-AnastasiaMusicFiles/Pods-AnastasiaMusic-AnastasiaMusicFiles-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0E1D1199C02FA9987DD80D3 /* [CP] Check Pods Manifest.lock */ = {
@@ -925,6 +1197,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -943,6 +1216,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
@@ -1009,8 +1283,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4C1320F215321AF00571796 /* Song.swift in Sources */,
-				B4C1320E215321AF00571796 /* UseCaseProvider.swift in Sources */,
-				B4C1320D215321AF00571796 /* SongUseCase.swift in Sources */,
+				B4C1320E215321AF00571796 /* UseCaseProviderType.swift in Sources */,
+				B4C1320D215321AF00571796 /* SongUseCaseType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4ECE61A21550BC700E7FEA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B49D04DB215510F200BA2A91 /* SearchSongsTableCell.swift in Sources */,
+				B49D04DC215510F200BA2A91 /* SearchSongsViewController.swift in Sources */,
+				B4891ABD21550E2E0080D08C /* Application.swift in Sources */,
+				B49D04DD215510F200BA2A91 /* SearchSongsViewModel.swift in Sources */,
+				B4ECE62721550BC700E7FEA5 /* Document.swift in Sources */,
+				B4ECE62521550BC700E7FEA5 /* DocumentViewController.swift in Sources */,
+				B4ECE62321550BC700E7FEA5 /* DocumentBrowserViewController.swift in Sources */,
+				B4ECE62121550BC700E7FEA5 /* AppDelegate.swift in Sources */,
+				B49D04E0215510FC00BA2A91 /* ViewModelType.swift in Sources */,
+				B49D04DA215510F200BA2A91 /* Navigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,6 +1343,21 @@
 			target = B4C131FA2153216300571796 /* Domain */;
 			targetProxy = B4C132002153216300571796 /* PBXContainerItemProxy */;
 		};
+		B4ECE63521550DBD00E7FEA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B453096B2154EBB500A5A74D /* Common */;
+			targetProxy = B4ECE63421550DBD00E7FEA5 /* PBXContainerItemProxy */;
+		};
+		B4ECE63721550DBD00E7FEA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4C131FA2153216300571796 /* Domain */;
+			targetProxy = B4ECE63621550DBD00E7FEA5 /* PBXContainerItemProxy */;
+		};
+		B4ECE63921550DBD00E7FEA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B431FE6F2153235500874EBD /* Platform */;
+			targetProxy = B4ECE63821550DBD00E7FEA5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1071,6 +1377,22 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		B4ECE62821550BC700E7FEA5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4ECE62921550BC700E7FEA5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4ECE62D21550BC800E7FEA5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4ECE62E21550BC800E7FEA5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1083,7 +1405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1115,7 +1437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1145,7 +1467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1177,7 +1499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1362,7 +1684,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1382,7 +1704,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1403,7 +1725,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1433,7 +1755,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = K9PQUJHQ8E;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1451,6 +1773,47 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B4ECE63121550BC800E7FEA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FECD44F9C0793B4A6BD450E /* Pods-AnastasiaMusic-AnastasiaMusicFiles.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
+				INFOPLIST_FILE = AnastasiaMusicFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4ECE63221550BC800E7FEA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22B9994B2B7F8DAB16EFA111 /* Pods-AnastasiaMusic-AnastasiaMusicFiles.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D5X9AY3FVA;
+				INFOPLIST_FILE = AnastasiaMusicFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1507,6 +1870,15 @@
 			buildConfigurations = (
 				B4C132052153216300571796 /* Debug */,
 				B4C132062153216300571796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4ECE63321550BC800E7FEA5 /* Build configuration list for PBXNativeTarget "AnastasiaMusicFiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4ECE63121550BC800E7FEA5 /* Debug */,
+				B4ECE63221550BC800E7FEA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

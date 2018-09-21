@@ -13,8 +13,6 @@ import Domain
 // MARK; - ListSongsCellViewModel
 
 final class ListSongsCellViewModel {
-    public var useCase: Domain.SongUseCase!
-    
     private let disposeBag = DisposeBag()
 }
 
@@ -25,6 +23,7 @@ extension ListSongsCellViewModel: ViewModelType {
         let song: Driver<Domain.Song>
         let playTrigger: Driver<Void>
         let stopTrigger: Driver<Void>
+        let deleteTrigger: Driver<Void>
     }
     
     struct Output {
@@ -33,20 +32,29 @@ extension ListSongsCellViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        let useCase = serviceLocator().resolve(SongUseCaseType.self)!
+        
         input.stopTrigger
-            .flatMap { _ in self.useCase.stop().asDriver(onErrorJustReturn: ()) }
+            .flatMap { _ in useCase.stop().asDriver(onErrorJustReturn: ()) }
             .drive()
             .disposed(by: disposeBag)
 
         input.playTrigger
             .withLatestFrom(input.song)
-            .flatMap { self.useCase.play(song: $0).asDriver(onErrorJustReturn: ()) }
+            .flatMap { useCase.play(song: $0).asDriver(onErrorJustReturn: ()) }
             .drive()
             .disposed(by: disposeBag)
         
         let playButtonTitle = Driver
             .merge(input.playTrigger.map { _ in true }, input.stopTrigger.map { _ in false })
             .map { $0 ? "Грається" : "Грати" }
+        
+        input.deleteTrigger
+            .withLatestFrom(input.song)
+            .asObservable()
+            .flatMap { useCase.delete(song: $0) }
+            .subscribe()
+            .disposed(by: disposeBag)
         
         return Output(
             songTitle: input.song.map { $0.description },

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - ViewModelType
+
 protocol ViewModelType {
     associatedtype Input
     associatedtype Output

@@ -19,8 +19,7 @@ import Domain
 class SearchSongsViewController: UIViewController {
     static let storyboardId = "SearchSongsViewController"
     
-    var viewModel: SearchSongsViewModel!
-    
+    private let viewModel = SearchSongsViewModel()
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var queryTextField: UITextField!
@@ -36,6 +35,7 @@ class SearchSongsViewController: UIViewController {
 extension SearchSongsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //
         // Inputs
         
