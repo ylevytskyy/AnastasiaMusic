@@ -1,5 +1,5 @@
 //
-//  SongSearchTableCell.swift
+//  SearchSongsTableCell.swift
 //  AnastasiaMusic
 //
 //  Created by Yuriy Levytskyy on 9/20/18.
@@ -11,12 +11,14 @@ import RxSwift
 import RxCocoa
 import Domain
 
-class SongSearchTableCell: UITableViewCell {
+class SearchSongsTableCell: UITableViewCell {
     public static let reuseId = "CellId"
+    
+    @IBOutlet weak var songDescriptionLabel: UILabel!
 }
 
-extension SongSearchTableCell {
+extension SearchSongsTableCell {
     func configure(state: Song) {
-        self.textLabel?.text = state.description
+        self.songDescriptionLabel?.text = state.description
     }
 }

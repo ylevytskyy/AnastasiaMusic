@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchSongsViewController.swift
 //  AnastasiaMusic
 //
 //  Created by Yuriy Levytskyy on 8/13/18.
@@ -14,10 +14,13 @@ import RxCocoa
 import Platform
 import Domain
 
-// MARK: - SongSearchViewController
+// MARK: - SearchSongsViewController
 
-class SongSearchViewController: UIViewController {
-    private var viewModel: SongSearchViewModel!
+class SearchSongsViewController: UIViewController {
+    static let storyboardId = "SearchSongsViewController"
+    
+    var viewModel: SearchSongsViewModel!
+    
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var queryTextField: UITextField!
@@ -30,12 +33,9 @@ class SongSearchViewController: UIViewController {
 
 // MARK: - UIViewController
 
-extension SongSearchViewController {
+extension SearchSongsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = SongSearchViewModel(useCase: useCaseProvider().makeSongUseCase())
-
         //
         // Inputs
         
@@ -45,7 +45,7 @@ extension SongSearchViewController {
             .filter { $0 != nil }
             .map { $0! }
         
-        let input = SongSearchViewModel.Input(
+        let input = SearchSongsViewModel.Input(
             queryTrigger: queryTrigger,
             listTrigger: listButton.rx.tap.asDriver(),
             downloadTrigger: tableView.rx.modelSelected(Song.self).asDriver())
@@ -57,7 +57,7 @@ extension SongSearchViewController {
         
         // Search result
         output.searchResults
-            .drive(tableView.rx.items(cellIdentifier: SongSearchTableCell.reuseId, cellType: SongSearchTableCell.self)) { _, state, cell in
+            .drive(tableView.rx.items(cellIdentifier: SearchSongsTableCell.reuseId, cellType: SearchSongsTableCell.self)) { _, state, cell in
                 cell.configure(state: state)
             }
             .disposed(by: disposeBag)
@@ -74,15 +74,7 @@ extension SongSearchViewController {
             .disposed(by: disposeBag)
         output.isBusy.map { !$0 }.drive(searchButton.rx.isEnabled).disposed(by: disposeBag)
         output.isBusy.map { !$0 }.drive(listButton.rx.isEnabled).disposed(by: disposeBag)
-        
-        // Navigation
-        output.navigateToListTrigger
-            .drive(onNext: { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.performSegue(withIdentifier: "playSegueue", sender: strongSelf)
-            })
-            .disposed(by: disposeBag)
-        
+                
         // Download error
         output.downloadErrorTrigger
             .skip(1)

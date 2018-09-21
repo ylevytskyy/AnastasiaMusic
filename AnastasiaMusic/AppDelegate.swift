@@ -7,23 +7,18 @@
 //
 
 import UIKit
-import QorumLogs
-import Domain
-import Platform
-
-func useCaseProvider() -> Domain.UseCaseProvider {
-    return (UIApplication.shared.delegate as! AppDelegate).useCaseProvider
-}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    public let useCaseProvider = Platform.UseCaseProvider()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        QorumLogs.enabled = true
+        let window = UIWindow(frame: UIScreen.main.bounds)
         
+        Application.shared.configureMainInterface(in: window)
+        
+        self.window = window
+
         return true
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SongSearchViewModel.swift
+//  SearchSongsViewModel.swift
 //  AnastasiaMusic
 //
 //  Created by Yuriy Levytskyy on 9/20/18.
@@ -8,9 +8,24 @@
 
 import RxSwift
 import RxCocoa
+import Common
 import Domain
 
-final class SongSearchViewModel: ViewModelType {
+// MARK: - SearchSongsViewModel
+
+final class SearchSongsViewModel {
+    private let useCase: Domain.SongUseCase
+    private let navigator: NavigatorType
+    private let disposeBag = DisposeBag()
+    
+    private let isBusyRelay = BehaviorRelay(value: false)
+    private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
+    
+    init(useCase: Domain.SongUseCase, navigator: NavigatorType) {
+        self.useCase = useCase
+        self.navigator = navigator
+    }
+    
     struct Input {
         let queryTrigger: Driver<String>
         let listTrigger: Driver<Void>
@@ -20,19 +35,11 @@ final class SongSearchViewModel: ViewModelType {
     struct Output {
         let searchResults: Driver<[Song]>
         let isBusy: Driver<Bool>
-        let navigateToListTrigger: Driver<Void>
         let downloadErrorTrigger: Driver<String>
     }
-    
-    private let useCase: Domain.SongUseCase
-    
-    private let isBusyRelay = BehaviorRelay(value: false)
-    private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
-    
-    init(useCase: Domain.SongUseCase) {
-        self.useCase = useCase
-    }
-    
+}
+
+extension SearchSongsViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         // Search trigger
         let searchEnabler = Driver.combineLatest(input.queryTrigger, isBusyRelay.asDriver())
@@ -46,7 +53,6 @@ final class SongSearchViewModel: ViewModelType {
                     .do(onError: { _ in self.isBusyRelay.accept(false) }, onCompleted: { self.isBusyRelay.accept(false) }, onSubscribe: { self.isBusyRelay.accept(true) })
                 .asDriver(onErrorJustReturn: [Song]())
             }
-//            .asDriver(onErrorJustReturn: [Song]())
         
         // Download trigger
         let downloadedEnabler = Driver.combineLatest(input.downloadTrigger, isBusyRelay.asDriver())
@@ -58,7 +64,7 @@ final class SongSearchViewModel: ViewModelType {
                 self.useCase
                     .query(description: song.description)
                     .asDriver(onErrorJustReturn: [Song]())
-                    .flatMap { (sameSongs:[Song]) -> Driver<Void> in
+                    .flatMap { (sameSongs:[Song]) -> Driver<Bool> in
                         if !sameSongs.isEmpty {
                             self.downloadErrorTriggerRelay.accept("Пісню вже закачано")
                         }
@@ -75,19 +81,26 @@ final class SongSearchViewModel: ViewModelType {
                                     }, onSubscribe: {
                                         self.isBusyRelay.accept(true)
                                     })
-                                    .asDriver(onErrorJustReturn: ())
+                                    . map { _ in true }
+                                    .asDriver(onErrorJustReturn: false)
                             :
-                            Observable
-                                .just(())
-                                .asDriver(onErrorJustReturn: ())
-                }
+                            Observable<Bool>
+                                .just(false)
+                                .asDriver(onErrorJustReturn: false)
+                    }
+                    .filter { $0 }
+                    .map { _ in }
         }
+        
+        // Navigation
+        Driver<Void>.merge(input.listTrigger, downloadedTrigger)
+            .drive(onNext: { _ in self.navigator.toListSongs() })
+            .disposed(by: disposeBag)
         
         // Output
         return Output(
             searchResults:searchResults,
             isBusy: isBusyRelay.asDriver(),
-            navigateToListTrigger:Driver<Void>.merge(input.listTrigger, downloadedTrigger),
             downloadErrorTrigger:downloadErrorTriggerRelay.asDriver())
     }
 }
