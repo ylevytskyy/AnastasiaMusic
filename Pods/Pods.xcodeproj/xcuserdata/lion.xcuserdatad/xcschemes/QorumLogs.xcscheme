@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "31BCA9C8940493B1689A20F7C48ACB6A"
+               BlueprintIdentifier = "F58908C5A2D6B32C4EC411FBEAD5D668"
                BlueprintName = "QorumLogs"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "QorumLogs.framework">

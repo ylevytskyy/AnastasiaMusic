@@ -38,7 +38,6 @@ final class Repository<T> where T: StorableType {
                     
                     _ = self
                         .update()
-                        .subscribeOn(MainScheduler.instance)
                         .subscribe()
                 }
                 catch let error {
@@ -46,7 +45,7 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-        }.asObservable()
+        }.asObservable().subscribeOn(MainScheduler.instance)
     }
     
     public func update() -> Observable<Void> {
@@ -69,7 +68,7 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-        }.asObservable()
+        }.asObservable().subscribeOn(MainScheduler.instance)
     }
     
     public func query(description: String) -> Observable<[T]> {
@@ -91,7 +90,7 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-        }.asObservable()
+        }.asObservable().subscribeOn(MainScheduler.instance)
     }
     
     public func delete(description: String) -> Observable<Void> {
@@ -108,7 +107,7 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-        }.asObservable()
+        }.asObservable().subscribeOn(MainScheduler.instance)
     }
 
     private func createTable() -> Observable<Void> {
@@ -125,6 +124,6 @@ final class Repository<T> where T: StorableType {
                 }
             }
             return Disposables.create {}
-        }.asObservable()
+        }.asObservable().subscribeOn(MainScheduler.instance)
     }
 }

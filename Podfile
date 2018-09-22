@@ -23,4 +23,5 @@ target 'AnastasiaMusic' do
   pod 'Swinject', '~> 2.5'
   pod 'FMDB', '~> 2.7'
   pod 'RxGesture', '~> 1.2'
+  pod 'RxFlow', '~> 1.5'
 end

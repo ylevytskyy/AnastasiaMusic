@@ -60,6 +60,7 @@ extension SearchSongsViewModel: ViewModelType {
             .filter { !$0.1 }
             .map { $0.0 }
             .flatMap { song in
+                // Prevent downloading same song twice
                 useCase
                     .query(description: song.description)
                     .asDriver(onErrorJustReturn: [Song]())
@@ -69,6 +70,7 @@ extension SearchSongsViewModel: ViewModelType {
                         }
                         return sameSongs.isEmpty
                             ?
+                                // Download new song
                                 useCase
                                     .download(song: song)
                                     .do(onError: { error in
@@ -82,19 +84,20 @@ extension SearchSongsViewModel: ViewModelType {
                                     . map { _ in true }
                                     .asDriver(onErrorJustReturn: false)
                             :
+                                // Song already downloaded
                             Observable<Bool>
                                 .just(false)
                                 .asDriver(onErrorJustReturn: false)
                     }
                     .filter { $0 }
-                    .map { _ in }
+                    .map { _ in song as Song? }
         }
         
         // Navigation
-        Driver<Void>.merge(input.listTrigger, downloadedTrigger)
-            .drive(onNext: { _ in
+        Driver<Song?>.merge(input.listTrigger.map { _ in nil }, downloadedTrigger)
+            .drive(onNext: {
                 let navigator = serviceLocator().resolve(NavigatorType.self)!
-                navigator.toListSongs()
+                navigator.toListSongs(selectedSong: $0)
             })
             .disposed(by: disposeBag)
         

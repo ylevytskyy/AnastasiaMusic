@@ -16,7 +16,7 @@ import Platform
 protocol NavigatorType {
     var navigationController: UINavigationController { get }
     
-    func toListSongs()
+    func toListSongs(selectedSong: Song?)
     func toSearchSongs()
 }
 
@@ -36,8 +36,9 @@ class Navigator {
 // MARK: - NavigatorType
 
 extension Navigator: NavigatorType {
-    func toListSongs() {
+    func toListSongs(selectedSong: Song?) {
         guard let viewController = storyBoard.instantiateViewController(withIdentifier: ListSongsViewController.storyboardId) as? ListSongsViewController else { fatalError() }
+        viewController.selectedSongRelay.accept(selectedSong)
         navigationController.pushViewController(viewController, animated: true)
     }
     
