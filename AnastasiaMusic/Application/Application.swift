@@ -8,6 +8,8 @@
 
 import QorumLogs
 import Swinject
+import RxSwift
+import RxFlow
 import Domain
 import Platform
 
@@ -22,6 +24,10 @@ func serviceLocator() -> Container {
 final class Application {
     static let shared = Application()
     
+    private lazy var flow = SearchFlow()
+    
+    private let coordinator = Coordinator()
+    
     let container = Container() { container in
         // UseCaseProvider
         container.register(UseCaseProviderType.self) { _ in
@@ -32,12 +38,6 @@ final class Application {
             let useCaseProvider = resolver.resolve(UseCaseProviderType.self)!
             return useCaseProvider.makeSongUseCase()
         }.inObjectScope(.container)
-        // NavigatorType
-        container.register(NavigatorType.self) { resolver in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController = UINavigationController()
-            return Navigator(navigationController: navigationController, storyBoard: storyboard)
-        }.inObjectScope(.container)
     }
     
     private init() {
@@ -45,8 +45,10 @@ final class Application {
     }
     
     func configureMainInterface(in window: UIWindow) {
-        let navigator = serviceLocator().resolve(NavigatorType.self)!
-        window.rootViewController = navigator.navigationController
-        navigator.toSearchSongs()
+        Flows.whenReady(flows: [flow]) {
+            window.rootViewController = $0.first
+        }
+        
+        coordinator.coordinate(flow: flow, withStepper: OneStepper(withSingleStep: SongStep.search))
     }
 }

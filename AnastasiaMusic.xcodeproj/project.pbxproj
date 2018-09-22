@@ -71,7 +71,7 @@
 		B4ED63132154ED9D00145508 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D311772153A90B00772B3C /* URL+Extensions.swift */; };
 		B4ED63142154EDA900145508 /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46E8AD621539FD1003EBB75 /* FileManager+Extensions.swift */; };
 		B4ED63172154EF7500145508 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED63162154EF7500145508 /* Application.swift */; };
-		B4ED63212154FA6400145508 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED63202154FA6400145508 /* Navigator.swift */; };
+		B4ED63212154FA6400145508 /* SearchFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ED63202154FA6400145508 /* SearchFlow.swift */; };
 		D14533989863FC0C926C622C /* Pods_AnastasiaMusic_PlatformTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671B7FA840A0CCE264DE67ED /* Pods_AnastasiaMusic_PlatformTests.framework */; };
 		F899DB6661AC5F59A17D9E8B /* Pods_AnastasiaMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0956F4DD47F6492A041019D3 /* Pods_AnastasiaMusic.framework */; };
 /* End PBXBuildFile section */
@@ -254,7 +254,7 @@
 		B4ECE62E21550BC800E7FEA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4ECE63021550BC800E7FEA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4ED63162154EF7500145508 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		B4ED63202154FA6400145508 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		B4ED63202154FA6400145508 /* SearchFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFlow.swift; sourceTree = "<group>"; };
 		DEEBAF611CB0B174359EE3E1 /* Pods_AnastasiaMusic_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnastasiaMusic_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADFEA3E82865894725AC4DD /* Pods-AnastasiaMusic-PlatformTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnastasiaMusic-PlatformTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnastasiaMusic-PlatformTests/Pods-AnastasiaMusic-PlatformTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -338,7 +338,7 @@
 		B41963142153EBF400F408A5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B4ED63222154FA8500145508 /* Navigator */,
+				B4ED63222154FA8500145508 /* Router */,
 				B41963162153EC2100F408A5 /* ListSongs */,
 				B41963152153EC0800F408A5 /* SearchSongs */,
 			);
@@ -601,12 +601,12 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		B4ED63222154FA8500145508 /* Navigator */ = {
+		B4ED63222154FA8500145508 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				B4ED63202154FA6400145508 /* Navigator.swift */,
+				B4ED63202154FA6400145508 /* SearchFlow.swift */,
 			);
-			path = Navigator;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		C89F356D51D48795ED652DF1 /* Pods */ = {
@@ -1288,7 +1288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4ED63172154EF7500145508 /* Application.swift in Sources */,
-				B4ED63212154FA6400145508 /* Navigator.swift in Sources */,
+				B4ED63212154FA6400145508 /* SearchFlow.swift in Sources */,
 				B4833357212202530043709A /* SearchSongsViewController.swift in Sources */,
 				B4703F532153EE0200221467 /* SearchSongsViewModel.swift in Sources */,
 				B421675A212CD8A500E723B3 /* ListSongsTableCell.swift in Sources */,
@@ -1433,7 +1433,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Platform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Platform;
@@ -1461,7 +1465,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Platform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Platform;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1487,7 +1495,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Common/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Common;
@@ -1515,7 +1527,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Common/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Common;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1534,7 +1550,11 @@
 				DEVELOPMENT_TEAM = GFN9SKWLAD;
 				INFOPLIST_FILE = PlatformTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.PlatformTests;
@@ -1551,7 +1571,11 @@
 				DEVELOPMENT_TEAM = GFN9SKWLAD;
 				INFOPLIST_FILE = PlatformTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.PlatformTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1684,7 +1708,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1701,7 +1728,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusic/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1723,7 +1753,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Domain;
@@ -1749,7 +1783,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.epam.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1769,7 +1807,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusicFiles/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
@@ -1787,7 +1828,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D5X9AY3FVA;
 				INFOPLIST_FILE = AnastasiaMusicFiles/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiseland.AnastasiaMusicFiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";

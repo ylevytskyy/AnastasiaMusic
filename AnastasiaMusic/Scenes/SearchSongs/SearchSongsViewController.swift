@@ -11,15 +11,20 @@ import SwiftSoup
 import QorumLogs
 import RxSwift
 import RxCocoa
+import RxFlow
 import Platform
 import Domain
 
 // MARK: - SearchSongsViewController
 
-class SearchSongsViewController: UIViewController {
+class SearchSongsViewController: UIViewController, Stepper {
     static let storyboardId = "SearchSongsViewController"
     
+    private let stepsRelay = PublishRelay<Step>()
+    var steps: Observable<Step> { return stepsRelay.asObservable() }
+    
     private let viewModel = SearchSongsViewModel()
+    
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var queryTextField: UITextField!
@@ -72,8 +77,14 @@ extension SearchSongsViewController {
                 }
             })
             .disposed(by: disposeBag)
-        output.isBusy.map { !$0 }.drive(searchButton.rx.isEnabled).disposed(by: disposeBag)
-        output.isBusy.map { !$0 }.drive(listButton.rx.isEnabled).disposed(by: disposeBag)
+        output.isBusy
+            .map { !$0 }
+            .drive(searchButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        output.isBusy
+            .map { !$0 }
+            .drive(listButton.rx.isEnabled)
+            .disposed(by: disposeBag)
                 
         // Download error
         output.downloadErrorTrigger
@@ -84,6 +95,13 @@ extension SearchSongsViewController {
                 alertController.addAction(action)
                 self?.present(alertController, animated: true, completion: nil)
             })
+            .disposed(by: disposeBag)
+        
+        // Navigation
+        output.navigateTrigger
+            .asObservable()
+            .map { SongStep.list(song: $0) }
+            .bind(to: stepsRelay)
             .disposed(by: disposeBag)
     }
 }

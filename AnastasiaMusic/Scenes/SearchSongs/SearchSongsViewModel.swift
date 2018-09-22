@@ -18,6 +18,7 @@ final class SearchSongsViewModel {
     
     private let isBusyRelay = BehaviorRelay(value: false)
     private let downloadErrorTriggerRelay = BehaviorRelay(value: "")
+    private let navigateToListTriggerRelay = PublishRelay<Song?>()
 }
 
 // MARK: - ViewModelType
@@ -33,6 +34,7 @@ extension SearchSongsViewModel: ViewModelType {
         let searchResults: Driver<[Song]>
         let isBusy: Driver<Bool>
         let downloadErrorTrigger: Driver<String>
+        let navigateTrigger: Driver<Song?>
     }
 
     func transform(input: Input) -> Output {
@@ -94,17 +96,24 @@ extension SearchSongsViewModel: ViewModelType {
         }
         
         // Navigation
-        Driver<Song?>.merge(input.listTrigger.map { _ in nil }, downloadedTrigger)
-            .drive(onNext: {
-                let navigator = serviceLocator().resolve(NavigatorType.self)!
-                navigator.toListSongs(selectedSong: $0)
-            })
+//        Driver<Song?>.merge(input.listTrigger.map { _ in nil }, downloadedTrigger)
+//            .drive(onNext: {
+//                let navigator = serviceLocator().resolve(NavigatorType.self)!
+//                navigator.toListSongs(selectedSong: $0)
+//            })
+//            .disposed(by: disposeBag)
+        Driver<Song?>
+            .merge(input.listTrigger.map { _ in nil }, downloadedTrigger)
+            .asObservable()
+            .bind(to: navigateToListTriggerRelay)
             .disposed(by: disposeBag)
         
+        let navigateTrigger = Driver<Song?>.merge(input.listTrigger.map { _ in nil }, downloadedTrigger)
         // Output
         return Output(
             searchResults:searchResults,
             isBusy: isBusyRelay.asDriver(),
-            downloadErrorTrigger:downloadErrorTriggerRelay.asDriver())
+            downloadErrorTrigger:downloadErrorTriggerRelay.asDriver(),
+            navigateTrigger: navigateTrigger)
     }
 }
